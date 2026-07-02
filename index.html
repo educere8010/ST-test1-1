@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수능특강 TEST 1-1 | 에듀케레 영수학원</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a2744;
+  --navy-soft:#26365c;
+  --gold:#c8a84b;
+  --gold-soft:#e6d49a;
+  --paper:#f4f6f9;
+  --line:#dfe4ec;
+  --ink:#24303f;
+  --green-bg:#e2efda;
+  --green-tx:#375623;
+  --yellow-bg:#fdf6e0;
+  --yellow-tx:#7f6000;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--paper);color:var(--ink);
+  font-family:'Noto Sans KR',sans-serif;line-height:1.7;-webkit-text-size-adjust:100%;}
+.layout{display:flex;align-items:flex-start;}
+
+/* ===== Sidebar ===== */
+.sidebar{flex:0 0 280px;width:280px;min-height:100vh;position:sticky;top:0;
+  background:var(--navy);color:#fff;padding:28px 20px 40px;overflow-y:auto;height:100vh;}
+.brand{border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:20px;margin-bottom:20px;}
+.brand .mark{font-family:'Playfair Display',serif;letter-spacing:3px;font-size:12px;
+  color:var(--gold);font-weight:700;}
+.brand .kr{font-size:23px;font-weight:900;margin-top:4px;letter-spacing:-.5px;}
+.brand .kr b{color:var(--gold-soft);}
+.brand .sub{font-size:12px;color:#a9b4c9;margin-top:6px;letter-spacing:.5px;}
+.matbox{background:rgba(255,255,255,.06);border:1px solid rgba(200,168,75,.35);
+  border-radius:10px;padding:12px 14px;margin-bottom:22px;}
+.matbox .lab{font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700;}
+.matbox .val{font-size:17px;font-weight:800;margin-top:2px;}
+.navtitle{font-size:11px;color:#8b98b3;letter-spacing:2px;font-weight:700;margin-bottom:10px;}
+.navitem{display:block;width:100%;text-align:left;border:0;cursor:pointer;
+  background:transparent;color:#cfd6e6;font-family:inherit;font-size:14px;
+  padding:11px 12px;border-radius:9px;margin-bottom:4px;line-height:1.4;transition:.15s;}
+.navitem .no{display:inline-block;font-family:'Playfair Display',serif;font-weight:700;
+  color:var(--gold);margin-right:8px;font-size:14px;}
+.navitem .tt{color:#aeb8cd;font-size:12.5px;}
+.navitem:hover{background:rgba(255,255,255,.07);color:#fff;}
+.navitem.active{background:var(--gold);color:var(--navy);font-weight:700;}
+.navitem.active .no{color:var(--navy);}
+.navitem.active .tt{color:#3a3212;}
+.sidefoot{margin-top:26px;font-size:11px;color:#7d89a3;line-height:1.7;
+  border-top:1px solid rgba(255,255,255,.12);padding-top:16px;}
+
+/* ===== Main ===== */
+.main{flex:1;min-width:0;padding:0 0 60px;}
+.topbar{background:#fff;border-bottom:1px solid var(--line);padding:16px 30px;
+  position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;}
+.topbar .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
+.topbar .t{font-size:14px;font-weight:700;color:var(--navy);letter-spacing:-.2px;}
+.topbar .t span{color:#8a94a6;font-weight:500;}
+.wrap{max-width:860px;margin:0 auto;padding:26px 22px 0;}
+
+.ptitle{margin-bottom:18px;}
+.ptitle .qno{display:inline-block;background:var(--navy);color:var(--gold);
+  font-family:'Playfair Display',serif;font-weight:800;font-size:13px;
+  padding:4px 12px;border-radius:20px;letter-spacing:1px;}
+.ptitle .en{font-family:'EB Garamond',serif;font-size:26px;font-weight:600;
+  color:var(--navy);margin-top:12px;line-height:1.25;}
+.ptitle .ko{font-size:14px;color:#6b7688;margin-top:4px;}
+.ptitle .type{font-size:12.5px;color:var(--gold-soft);background:var(--navy);
+  display:inline-block;padding:3px 10px;border-radius:6px;margin-top:10px;
+  color:var(--gold);letter-spacing:.3px;}
+
+/* ===== Tabs ===== */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:2px solid var(--line);
+  margin-bottom:24px;padding-bottom:0;}
+.tab{border:0;background:transparent;cursor:pointer;font-family:inherit;
+  font-size:13.5px;font-weight:600;color:#7c869a;padding:10px 14px;
+  border-radius:8px 8px 0 0;position:relative;top:2px;transition:.15s;white-space:nowrap;}
+.tab:hover{color:var(--navy);}
+.tab.active{color:var(--navy);border-bottom:3px solid var(--gold);background:#fff;}
+
+.tabpanel{animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+/* ===== Full text ===== */
+.fulltext{background:#fff;border:1px solid var(--line);border-left:5px solid var(--navy);
+  border-radius:10px;padding:24px 26px;font-family:'EB Garamond',serif;
+  font-size:18px;line-height:1.85;color:#2b3648;}
+.fulltext .lead{font-variant:small-caps;letter-spacing:.5px;}
+.note{font-size:12.5px;color:#8a94a6;margin-top:12px;font-family:'Noto Sans KR';
+  border-top:1px dashed var(--line);padding-top:10px;}
+.note b{color:var(--navy);}
+
+/* ===== Sentence analysis ===== */
+.sbox{margin-bottom:26px;}
+.enbox{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:8px;padding:14px 16px;font-family:'EB Garamond',serif;font-size:17px;
+  line-height:1.65;color:#22303f;display:flex;gap:10px;align-items:flex-start;}
+.enbox .cn{font-family:'Noto Sans KR';font-weight:700;color:var(--navy);
+  font-size:17px;flex:0 0 auto;line-height:1.5;}
+.literal{background:#faf8f1;border:1px solid #efe8d3;border-radius:8px;
+  padding:12px 15px;margin-top:8px;}
+.literal .slash{font-family:'EB Garamond',serif;font-size:15px;color:#5a4a1f;line-height:1.7;}
+.literal .kor{font-size:13.5px;color:#3c4453;margin-top:6px;line-height:1.7;}
+.gram{background:var(--yellow-bg);border:1px solid #f0e4b8;border-left:4px solid var(--gold);
+  border-radius:8px;padding:11px 15px;margin-top:8px;}
+.gram p{font-size:13px;color:#4a4326;line-height:1.65;margin:2px 0;}
+.gram .d{color:var(--navy);font-weight:700;}
+.gram .a{color:#3c4453;}
+.gram .s{color:#9a7b12;font-weight:600;}
+
+/* ===== Vocab ===== */
+.voc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;
+  margin-bottom:8px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;}
+.voc .w{font-family:'EB Garamond',serif;font-weight:600;font-size:17px;color:var(--navy);
+  background:var(--green-bg);color:var(--green-tx);padding:2px 10px;border-radius:6px;}
+.voc .mean{font-size:14px;font-weight:600;color:#2b3648;}
+.voc .pos{font-size:12px;color:#fff;background:var(--navy-soft);padding:1px 8px;border-radius:10px;}
+.voc .der{font-size:12.5px;color:#7c869a;}
+.voc .der b{color:#5a6478;font-weight:600;}
+
+/* ===== Translation ===== */
+.trans{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 24px;
+  font-size:15px;line-height:1.95;color:#2b3648;}
+
+/* ===== Theme ===== */
+.theme .row{background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:12px;}
+.theme .k{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--gold);}
+.theme .k.navy{color:var(--navy);}
+.theme .v{font-size:14.5px;color:#2b3648;margin-top:5px;line-height:1.75;}
+.theme .ans{background:var(--navy);color:#fff;border:0;}
+.theme .ans .k{color:var(--gold);}
+.theme .ans .v{color:#eef1f6;}
+.theme .flow{counter-reset:st;}
+.theme .flow div{position:relative;padding:6px 0 6px 34px;font-size:14px;color:#2b3648;}
+.theme .flow div:before{counter-increment:st;content:counter(st);position:absolute;left:0;top:5px;
+  width:23px;height:23px;background:var(--gold);color:var(--navy);border-radius:50%;
+  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+
+/* ===== Quiz ===== */
+.qcard{background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:20px 22px;margin-bottom:18px;}
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.qbadge{background:var(--navy);color:var(--gold);font-size:11.5px;font-weight:700;
+  padding:3px 10px;border-radius:20px;letter-spacing:.4px;flex:0 0 auto;}
+.qtype{font-size:12px;color:#8a94a6;font-weight:600;}
+.qstem{font-size:14.5px;font-weight:600;color:#24303f;margin:6px 0 14px;line-height:1.7;}
+.qstem .en{font-family:'EB Garamond',serif;font-size:16px;color:#22303f;}
+.qstem .blank{display:inline-block;min-width:70px;border-bottom:2px solid var(--gold);
+  text-align:center;color:var(--gold);font-weight:700;}
+.opts .opt{border:1.5px solid var(--line);border-radius:9px;padding:11px 14px;margin-bottom:8px;
+  cursor:pointer;font-size:14px;color:#2b3648;display:flex;gap:9px;align-items:flex-start;
+  transition:.15s;background:#fff;}
+.opts .opt:hover{border-color:var(--gold);background:#fffdf6;}
+.opts .opt .on{font-weight:800;color:var(--navy);flex:0 0 auto;}
+.opts .opt .ot{flex:1;}
+.opts .opt .ot.en{font-family:'EB Garamond',serif;font-size:15.5px;}
+.opts .opt.correct{border-color:#2e7d32;background:#eaf6eb;}
+.opts .opt.correct .on{color:#2e7d32;}
+.opts .opt.wrong{border-color:#c0392b;background:#fdecea;}
+.opts .opt.wrong .on{color:#c0392b;}
+.opts .opt.correct:after{content:'\2714';margin-left:auto;color:#2e7d32;font-weight:800;}
+.opts .opt.wrong:after{content:'\2716';margin-left:auto;color:#c0392b;font-weight:800;}
+.exp{display:none;margin-top:10px;background:var(--yellow-bg);border-left:4px solid var(--gold);
+  border-radius:8px;padding:11px 15px;font-size:13.5px;color:#4a4326;line-height:1.7;}
+.exp b{color:var(--navy);}
+.reset{margin-top:10px;background:transparent;border:1px solid var(--line);color:#7c869a;
+  font-family:inherit;font-size:12.5px;padding:6px 14px;border-radius:20px;cursor:pointer;}
+.reset:hover{border-color:var(--gold);color:var(--navy);}
+
+/* ===== Writing (서술형) ===== */
+.wcard{background:#fff;border:1px solid var(--line);border-radius:12px;
+  border-top:4px solid var(--navy);padding:20px 22px;margin-bottom:18px;}
+.wtag{background:var(--gold);color:var(--navy);font-size:12px;font-weight:800;
+  padding:3px 12px;border-radius:6px;display:inline-block;margin-bottom:10px;}
+.wprompt{font-size:14.5px;color:#24303f;line-height:1.75;margin-bottom:6px;}
+.wprompt .en{font-family:'EB Garamond',serif;font-size:16px;}
+.wprompt .blank{display:inline-block;min-width:56px;border-bottom:2px solid var(--gold);}
+.wcond{font-size:12.5px;color:#8a7318;background:var(--yellow-bg);border-radius:6px;
+  padding:6px 11px;display:inline-block;margin-bottom:12px;}
+.wtext{width:100%;min-height:96px;border:1.5px solid var(--line);border-radius:9px;
+  padding:12px 14px;font-family:'Noto Sans KR',sans-serif;font-size:14px;color:#24303f;
+  line-height:1.8;resize:vertical;background:#fcfcfd;}
+.wtext:focus{outline:none;border-color:var(--gold);background:#fff;}
+.showans{margin-top:12px;background:var(--navy);color:#fff;border:0;font-family:inherit;
+  font-size:13px;font-weight:600;padding:9px 18px;border-radius:22px;cursor:pointer;}
+.showans:hover{background:var(--navy-soft);}
+.modelans{display:none;margin-top:12px;background:#eef2f8;border:1px solid #d4ddec;
+  border-radius:9px;padding:14px 16px;}
+.modelans .mlab{font-size:11.5px;font-weight:800;color:var(--navy);letter-spacing:1px;margin-bottom:6px;}
+.modelans .mtx{font-size:13.5px;color:#2b3648;line-height:1.8;}
+.modelans .mtx .en{font-family:'EB Garamond',serif;font-size:15px;color:#22303f;}
+.mainfoot{max-width:860px;margin:40px auto 0;padding:20px 22px 0;border-top:1px solid var(--line);
+  font-size:12px;color:#9aa4b4;text-align:center;line-height:1.8;}
+.mainfoot b{color:var(--navy);}
+
+@media (max-width:820px){
+  .layout{flex-direction:column;}
+  .sidebar{position:static;height:auto;min-height:0;width:100%;flex:none;
+    padding:18px 16px 16px;}
+  .sidefoot{display:none;}
+  .navwrap{display:flex;overflow-x:auto;gap:6px;padding-bottom:4px;}
+  .navitem{flex:0 0 auto;width:auto;margin-bottom:0;padding:9px 12px;}
+  .navitem .tt{display:none;}
+  .topbar{padding:13px 16px;}
+  .wrap{padding:20px 15px 0;}
+  .ptitle .en{font-size:21px;}
+  .fulltext{font-size:16px;padding:18px 16px;}
+  .enbox{font-size:15.5px;padding:12px 13px;}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ===================== SIDEBAR ===================== -->
+<aside class="sidebar">
+  <div class="brand">
+    <div class="mark">EDUCERE</div>
+    <div class="kr">에듀케레 <b>영수학원</b></div>
+    <div class="sub">고등 영어 지문 분석 · Reading Lab</div>
+  </div>
+  <div class="matbox">
+    <div class="lab">EBS 수능특강</div>
+    <div class="val">TEST 1-1</div>
+  </div>
+  <div class="navtitle">PASSAGES · 지문 5</div>
+  <div class="navwrap">
+    <button class="navitem active" id="nav-1" onclick="showPassage(1)"><span class="no">01</span><span class="tt">할인 요청 편지</span></button>
+    <button class="navitem" id="nav-2" onclick="showPassage(2)"><span class="no">02</span><span class="tt">노아와 유성우</span></button>
+    <button class="navitem" id="nav-3" onclick="showPassage(3)"><span class="no">03</span><span class="tt">개인정보 보호 교육</span></button>
+    <button class="navitem" id="nav-4" onclick="showPassage(4)"><span class="no">04</span><span class="tt">우리를 눈멀게 하는 시각</span></button>
+    <button class="navitem" id="nav-5" onclick="showPassage(5)"><span class="no">05</span><span class="tt">자녀 의사결정 교육</span></button>
+  </div>
+  <div class="sidefoot">
+    에듀케레 영수학원<br>
+    경남 양산시 물금읍<br>
+    Tel. 055-363-8010
+  </div>
+</aside>
+
+<!-- ===================== MAIN ===================== -->
+<main class="main">
+  <div class="topbar">
+    <span class="dot"></span>
+    <span class="t">에듀케레 영수학원 <span>· 수능특강 TEST 1-1 분석지</span></span>
+  </div>
+  <div class="wrap">
+
+<section class="passage" id="passage-1" style="display:block">
+  <div class="ptitle">
+    <span class="qno">Q 01</span>
+    <div class="en">A Request for a Bulk Order Discount</div>
+    <div class="ko">대량 주문 할인 요청 편지 · 26005-0160</div>
+    <span class="type">유형 · 글의 목적 파악</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" id="tab-1-1" onclick="showTab(1,1)">전문</button>
+    <button class="tab" id="tab-1-2" onclick="showTab(1,2)">문장분석</button>
+    <button class="tab" id="tab-1-3" onclick="showTab(1,3)">핵심단어 및 표현</button>
+    <button class="tab" id="tab-1-4" onclick="showTab(1,4)">전문해석</button>
+    <button class="tab" id="tab-1-5" onclick="showTab(1,5)">주제와 요지</button>
+    <button class="tab" id="tab-1-6" onclick="showTab(1,6)">변형문제</button>
+  </div>
+
+  <!-- 전문 -->
+  <div class="tabpanel" id="pane-1-1">
+    <div class="fulltext">
+      Dear Pollet Toys,<br><br>
+      We are considering ordering 50 striped 2-inch plastic balls for the city-wide Youth Activity Day on June 14. According to your website, the balls are normally sold in individual plastic and cardboard packages. However, we will not need packaging or transportation for our order as we can pick up the balls, packed loose in cardboard boxes, directly from your warehouse. Given these circumstances, I would like to request a discount on our order. I believe that a discount of at least 25% would be reasonable. If you agree to this, please confirm the agreement in writing. If not, I would appreciate a call at 555-5555 as soon as possible so we can reach a mutually agreeable arrangement. I look forward to your positive response and hope that we can finalize the order details soon.<br><br>
+      Sincerely,<br>
+      Granville Community Center
+    </div>
+    <div class="note"><b>글의 목적</b> · 주문품에 할인 적용을 요청하려고 (정답 ②)</div>
+  </div>
+
+  <!-- 문장분석 -->
+  <div class="tabpanel" id="pane-1-2" style="display:none">
+    <div class="fulltext" style="font-size:15px;line-height:1.7;margin-bottom:22px;">
+      We are considering ordering 50 striped 2-inch plastic balls ... Given these circumstances, I would like to request a discount on our order. ... I look forward to your positive response and hope that we can finalize the order details soon.
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9312;</span><span>We are considering ordering 50 striped 2-inch plastic balls for the city-wide Youth Activity Day on June 14.</span></div>
+      <div class="literal"><div class="slash">We are considering / ordering 50 striped 2-inch plastic balls / for the city-wide Youth Activity Day / on June 14.</div><div class="kor">우리는 고려하고 있습니다 / 줄무늬가 있는 2인치 플라스틱 공 50개를 주문하는 것을 / 시 전역 청소년 활동의 날을 위해 / 6월 14일에.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; consider + 동명사(-ing)</span> <span class="a">&#9654; are considering ordering</span></p>
+        <p><span class="s">&#9733; consider는 to부정사가 아닌 동명사를 목적어로 취함 (enjoy, avoid, finish류) &mdash; consider to order(&times;)</span></p>
+        <p><span class="d">&#9670; 현재진행형</span> <span class="a">&#9654; are considering &mdash; 계획/임박한 일 표현</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9313;</span><span>According to your website, the balls are normally sold in individual plastic and cardboard packages.</span></div>
+      <div class="literal"><div class="slash">According to your website, / the balls are normally sold / in individual plastic and cardboard packages.</div><div class="kor">귀사의 웹사이트에 따르면, / 그 공들은 보통 판매됩니다 / 개별 플라스틱 및 판지 포장으로.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 수동태 (be + p.p.)</span> <span class="a">&#9654; the balls are sold</span></p>
+        <p><span class="s">&#9733; 주어(the balls)가 &lsquo;판매되는&rsquo; 대상 &rarr; 수동태. 빈도부사 normally의 위치(be동사 뒤) 확인</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9314;</span><span>However, we will not need packaging or transportation for our order as we can pick up the balls, packed loose in cardboard boxes, directly from your warehouse.</span></div>
+      <div class="literal"><div class="slash">However, / we will not need packaging or transportation / for our order / as we can pick up the balls, / packed loose in cardboard boxes, / directly from your warehouse.</div><div class="kor">하지만, / 우리는 포장이나 운송이 필요하지 않을 것입니다 / 우리 주문에 대해 / 우리가 그 공들을 가져갈 수 있기 때문에 / 판지 상자에 느슨하게 담긴 채로 / 귀사의 창고에서 직접.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 접속사 as (이유)</span> <span class="a">&#9654; as we can pick up ... &mdash; &lsquo;~때문에&rsquo;</span></p>
+        <p><span class="s">&#9733; as는 이유/시간/양보 다의어 &mdash; 문맥으로 판단</span></p>
+        <p><span class="d">&#9670; 과거분사 삽입구</span> <span class="a">&#9654; the balls, (which are) packed loose ... &mdash; 명사 뒤 분사가 수동 의미로 수식</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9315;</span><span>Given these circumstances, I would like to request a discount on our order.</span></div>
+      <div class="literal"><div class="slash">Given these circumstances, / I would like to request / a discount on our order.</div><div class="kor">이러한 상황을 고려할 때, / 저는 요청하고 싶습니다 / 우리 주문에 대한 할인을.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; Given ~ (분사/전치사적 관용)</span> <span class="a">&#9654; Given these circumstances &mdash; &lsquo;~을 고려하면&rsquo;</span></p>
+        <p><span class="d">&#9670; would like to +동사원형</span> <span class="a">&#9654; 정중한 &lsquo;~하고 싶다&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9316;</span><span>I believe that a discount of at least 25% would be reasonable.</span></div>
+      <div class="literal"><div class="slash">I believe / that a discount of at least 25% / would be reasonable.</div><div class="kor">저는 믿습니다 / 최소 25%의 할인이 / 합리적일 것이라고.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 명사절 접속사 that</span> <span class="a">&#9654; believe that ... &mdash; 완전한 절을 이끄는 목적어절</span></p>
+        <p><span class="d">&#9670; 완곡/추측의 would</span> <span class="a">&#9654; would be reasonable &mdash; 단정 대신 공손한 의견</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9317;</span><span>If you agree to this, please confirm the agreement in writing.</span></div>
+      <div class="literal"><div class="slash">If you agree to this, / please confirm the agreement / in writing.</div><div class="kor">만약 이에 동의하신다면, / 그 합의를 확인해 주십시오 / 서면으로.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 조건 부사절 if + 현재시제</span> <span class="a">&#9654; if you agree</span></p>
+        <p><span class="s">&#9733; 조건절에서는 미래도 현재시제로 &mdash; if you will agree(&times;)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9318;</span><span>If not, I would appreciate a call at 555-5555 as soon as possible so we can reach a mutually agreeable arrangement.</span></div>
+      <div class="literal"><div class="slash">If not, / I would appreciate a call / at 555-5555 / as soon as possible / so we can reach / a mutually agreeable arrangement.</div><div class="kor">그렇지 않다면, / 저는 전화를 주시면 감사하겠습니다 / 555-5555로 / 가능한 한 빨리 / 우리가 도달할 수 있도록 / 상호 동의 가능한 합의에.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; If not</span> <span class="a">&#9654; = If you do not agree &mdash; 반복을 피한 생략</span></p>
+        <p><span class="d">&#9670; so (that) 목적</span> <span class="a">&#9654; so we can reach ... &mdash; &lsquo;~하기 위해&rsquo; (that 생략)</span></p>
+        <p><span class="s">&#9733; as ~ as possible: 가능한 한 ~하게</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9319;</span><span>I look forward to your positive response and hope that we can finalize the order details soon.</span></div>
+      <div class="literal"><div class="slash">I look forward to / your positive response / and hope / that we can finalize / the order details / soon.</div><div class="kor">저는 고대합니다 / 귀사의 긍정적인 답변을 / 그리고 바랍니다 / 우리가 마무리할 수 있기를 / 주문 세부사항을 / 곧.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; look forward to +명사/동명사</span> <span class="a">&#9654; look forward to your response</span></p>
+        <p><span class="s">&#9733; 여기서 to는 전치사 &mdash; to seeing(&#9675;) / to see(&times;)</span></p>
+        <p><span class="d">&#9670; 동사 병렬</span> <span class="a">&#9654; look forward to ... and hope ... &mdash; and로 두 동사 연결</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심단어 -->
+  <div class="tabpanel" id="pane-1-3" style="display:none">
+    <div class="voc"><span class="w">consider</span><span class="mean">고려하다</span><span class="pos">v.</span><span class="der"><b>파생</b> consideration (n.), considerable (adj.)</span></div>
+    <div class="voc"><span class="w">striped</span><span class="mean">줄무늬가 있는</span><span class="pos">adj.</span><span class="der"><b>파생</b> stripe (n.)</span></div>
+    <div class="voc"><span class="w">normally</span><span class="mean">보통, 정상적으로</span><span class="pos">adv.</span><span class="der"><b>파생</b> normal (adj.), norm (n.)</span></div>
+    <div class="voc"><span class="w">individual</span><span class="mean">개별의; 개인</span><span class="pos">adj./n.</span><span class="der"><b>파생</b> individually (adv.)</span></div>
+    <div class="voc"><span class="w">cardboard</span><span class="mean">판지</span><span class="pos">n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">packaging</span><span class="mean">포장(재)</span><span class="pos">n.</span><span class="der"><b>파생</b> package (n./v.), pack (v.)</span></div>
+    <div class="voc"><span class="w">transportation</span><span class="mean">운송</span><span class="pos">n.</span><span class="der"><b>파생</b> transport (v./n.)</span></div>
+    <div class="voc"><span class="w">warehouse</span><span class="mean">창고</span><span class="pos">n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">circumstance</span><span class="mean">상황, 정황</span><span class="pos">n.</span><span class="der"><b>파생</b> circumstantial (adj.)</span></div>
+    <div class="voc"><span class="w">request</span><span class="mean">요청(하다)</span><span class="pos">v./n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">reasonable</span><span class="mean">합리적인, 타당한</span><span class="pos">adj.</span><span class="der"><b>파생</b> reason (n.), reasonably (adv.)</span></div>
+    <div class="voc"><span class="w">confirm</span><span class="mean">확인하다, 확정하다</span><span class="pos">v.</span><span class="der"><b>파생</b> confirmation (n.)</span></div>
+    <div class="voc"><span class="w">agreement</span><span class="mean">합의, 동의</span><span class="pos">n.</span><span class="der"><b>파생</b> agree (v.), agreeable (adj.)</span></div>
+    <div class="voc"><span class="w">finalize</span><span class="mean">마무리 짓다, 확정하다</span><span class="pos">v.</span><span class="der"><b>파생</b> final (adj.), finally (adv.)</span></div>
+  </div>
+
+  <!-- 전문해석 -->
+  <div class="tabpanel" id="pane-1-4" style="display:none">
+    <div class="trans">
+      Pollet Toys사 담당자께, 저희는 6월 14일에 열리는 시 전역 청소년 활동의 날 행사를 위해 줄무늬가 있는 2인치 플라스틱 공 50개의 주문을 고려하고 있습니다. 귀사의 웹사이트에 따르면 이 공들은 보통 개별 플라스틱 및 판지 포장 형태로 판매됩니다. 그러나 저희는 판지 상자에 느슨하게 담긴 공을 귀사의 창고에서 직접 가져올 수 있으므로, 이번 주문에 대해서는 포장이나 운송이 필요하지 않습니다. 이러한 상황을 고려하여 저희는 주문에 대한 할인을 요청드리고자 합니다. 저는 최소 25%의 할인이 합리적이라고 생각합니다. 이에 동의하신다면 서면으로 합의를 확인해 주시기 바랍니다. 그렇지 않다면 상호 동의할 수 있는 합의에 이를 수 있도록 555-5555로 가능한 한 빨리 전화 주시면 감사하겠습니다. 귀사의 긍정적인 답변을 고대하며, 주문 세부사항을 곧 확정할 수 있기를 바랍니다. Granville 지역 문화 센터 드림.
+    </div>
+  </div>
+
+  <!-- 주제와 요지 -->
+  <div class="tabpanel" id="pane-1-5" style="display:none">
+    <div class="theme">
+      <div class="row"><div class="k">TOPIC · 주제</div><div class="v">포장·운송이 불필요한 대량 주문에 대한 할인 요청</div></div>
+      <div class="row"><div class="k">MAIN IDEA · 요지</div><div class="v">필자는 창고에서 공을 직접 수령하여 포장·운송 비용이 들지 않으므로 최소 25%의 할인을 요청하며, 동의 여부에 따른 후속 조치(서면 확인 또는 전화)를 안내하고 있다.</div></div>
+      <div class="row"><div class="k navy">STRUCTURE · 구조 흐름</div><div class="flow"><div>주문 의사 밝힘 (50개 플라스틱 공)</div><div>일반 판매 방식 설명 &rarr; 포장·운송 불필요함 제시</div><div>근거를 바탕으로 할인 요청 (최소 25%)</div><div>동의/비동의에 따른 처리 방법 안내</div></div></div>
+      <div class="row ans"><div class="k">ANSWER · 글의 목적</div><div class="v">주문품에 할인 적용을 요청하려고 &mdash; 정답 &#9313;</div></div>
+    </div>
+  </div>
+
+  <!-- 변형문제 -->
+  <div class="tabpanel" id="pane-1-6" style="display:none">
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q1</span><span class="qtype">주제 추론</span></div>
+      <div class="qstem">이 글의 주제로 가장 적절한 것은?</div>
+      <div class="opts" id="q11-opts">
+        <div class="opt" onclick="pick('q11',1,2)"><span class="on">&#9312;</span><span class="ot">청소년 행사에 필요한 물품 목록을 안내하려고</span></div>
+        <div class="opt" onclick="pick('q11',2,2)"><span class="on">&#9313;</span><span class="ot">포장·운송이 불필요한 주문의 할인을 요청하려고</span></div>
+        <div class="opt" onclick="pick('q11',3,2)"><span class="on">&#9314;</span><span class="ot">창고에서의 제품 수령 절차를 문의하려고</span></div>
+        <div class="opt" onclick="pick('q11',4,2)"><span class="on">&#9315;</span><span class="ot">배송 중 훼손된 제품의 보상을 요구하려고</span></div>
+        <div class="opt" onclick="pick('q11',5,2)"><span class="on">&#9316;</span><span class="ot">개별 포장 옵션의 추가를 신청하려고</span></div>
+      </div>
+      <div class="exp" id="q11-exp"><b>정답 &#9313;</b> · 포장·운송이 필요 없음을 근거로 최소 25% 할인을 요청하는 글이다.</div>
+      <button class="reset" onclick="resetQuiz('q11')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q2</span><span class="qtype">빈칸 추론</span></div>
+      <div class="qstem"><span class="en">Given these circumstances, I would like to <span class="blank">______</span> on our order.</span></div>
+      <div class="opts" id="q12-opts">
+        <div class="opt" onclick="pick('q12',1,2)"><span class="on">&#9312;</span><span class="ot en">cancel the packaging</span></div>
+        <div class="opt" onclick="pick('q12',2,2)"><span class="on">&#9313;</span><span class="ot en">request a discount</span></div>
+        <div class="opt" onclick="pick('q12',3,2)"><span class="on">&#9314;</span><span class="ot en">delay the delivery</span></div>
+        <div class="opt" onclick="pick('q12',4,2)"><span class="on">&#9315;</span><span class="ot en">increase the quantity</span></div>
+        <div class="opt" onclick="pick('q12',5,2)"><span class="on">&#9316;</span><span class="ot en">change the color</span></div>
+      </div>
+      <div class="exp" id="q12-exp"><b>정답 &#9313;</b> · 앞에서 포장·운송 불필요를 근거로 제시했으므로 &lsquo;할인 요청(request a discount)&rsquo;이 자연스럽다.</div>
+      <button class="reset" onclick="resetQuiz('q12')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q3</span><span class="qtype">어법 오류</span></div>
+      <div class="qstem">밑줄 친 부분 중, 어법상 <b>틀린</b> 것은?<br>
+        <span class="en">We are <u>&#9312;considering</u> <u>&#9313;to order</u> 50 striped balls. If you <u>&#9314;agree</u> to this, please <u>&#9315;confirm</u> the agreement <u>&#9316;in writing</u>.</span></div>
+      <div class="opts" id="q13-opts">
+        <div class="opt" onclick="pick('q13',1,2)"><span class="on">&#9312;</span><span class="ot en">considering</span></div>
+        <div class="opt" onclick="pick('q13',2,2)"><span class="on">&#9313;</span><span class="ot en">to order</span></div>
+        <div class="opt" onclick="pick('q13',3,2)"><span class="on">&#9314;</span><span class="ot en">agree</span></div>
+        <div class="opt" onclick="pick('q13',4,2)"><span class="on">&#9315;</span><span class="ot en">confirm</span></div>
+        <div class="opt" onclick="pick('q13',5,2)"><span class="on">&#9316;</span><span class="ot en">in writing</span></div>
+      </div>
+      <div class="exp" id="q13-exp"><b>정답 &#9313;</b> · consider는 동명사를 목적어로 취하므로 to order &rarr; <b>ordering</b>이 되어야 한다.</div>
+      <button class="reset" onclick="resetQuiz('q13')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q4</span><span class="qtype">내용 불일치</span></div>
+      <div class="qstem">이 글의 내용과 <b>일치하지 않는</b> 것은?</div>
+      <div class="opts" id="q14-opts">
+        <div class="opt" onclick="pick('q14',1,4)"><span class="on">&#9312;</span><span class="ot">주문하려는 것은 2인치 플라스틱 공이다.</span></div>
+        <div class="opt" onclick="pick('q14',2,4)"><span class="on">&#9313;</span><span class="ot">행사 날짜는 6월 14일이다.</span></div>
+        <div class="opt" onclick="pick('q14',3,4)"><span class="on">&#9314;</span><span class="ot">필자는 공을 창고에서 직접 수령할 수 있다.</span></div>
+        <div class="opt" onclick="pick('q14',4,4)"><span class="on">&#9315;</span><span class="ot">필자는 개별 포장 상태로의 배송을 원한다.</span></div>
+        <div class="opt" onclick="pick('q14',5,4)"><span class="on">&#9316;</span><span class="ot">필자는 최소 25% 할인을 합리적이라 본다.</span></div>
+      </div>
+      <div class="exp" id="q14-exp"><b>정답 &#9315;</b> · 필자는 포장·운송이 필요 없다고 했으므로 개별 포장 배송을 원한다는 진술은 일치하지 않는다.</div>
+      <button class="reset" onclick="resetQuiz('q14')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q5</span><span class="qtype">글의 순서</span></div>
+      <div class="qstem">주어진 글 다음에 이어질 순서로 가장 적절한 것은?<br>
+        <span class="en" style="display:block;margin-top:6px;color:#5a6478;">[주어진 글] We are considering ordering 50 striped 2-inch plastic balls ...<br>
+        (A) However, we will not need packaging or transportation ... from your warehouse.<br>
+        (B) According to your website, the balls are normally sold in individual ... packages.<br>
+        (C) Given these circumstances, I would like to request a discount on our order.</span></div>
+      <div class="opts" id="q15-opts">
+        <div class="opt" onclick="pick('q15',1,3)"><span class="on">&#9312;</span><span class="ot en">(A) - (B) - (C)</span></div>
+        <div class="opt" onclick="pick('q15',2,3)"><span class="on">&#9313;</span><span class="ot en">(A) - (C) - (B)</span></div>
+        <div class="opt" onclick="pick('q15',3,3)"><span class="on">&#9314;</span><span class="ot en">(B) - (A) - (C)</span></div>
+        <div class="opt" onclick="pick('q15',4,3)"><span class="on">&#9315;</span><span class="ot en">(B) - (C) - (A)</span></div>
+        <div class="opt" onclick="pick('q15',5,3)"><span class="on">&#9316;</span><span class="ot en">(C) - (A) - (B)</span></div>
+      </div>
+      <div class="exp" id="q15-exp"><b>정답 &#9314;</b> · 판매 방식 설명(B) &rarr; 그러나 포장 불필요(A) &rarr; 따라서 할인 요청(C).</div>
+      <button class="reset" onclick="resetQuiz('q15')">다시 풀기</button>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 1 · 빈칸 요약</span>
+      <div class="wprompt"><span class="en">The writer asks for a <span class="blank"> (1) </span> because the order needs no <span class="blank"> (2) </span> or transportation.</span></div>
+      <div class="wcond">조건 · 본문에서 찾아 각 빈칸에 한 단어씩 쓰시오.</div>
+      <textarea class="wtext" placeholder="(1) __________  /  (2) __________ 답안을 작성하세요."></textarea>
+      <button class="showans" onclick="toggleAns('m11')">모범답안 보기</button>
+      <div class="modelans" id="m11"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">(1) discount &nbsp; (2) packaging</span></div></div>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 2 · 영작</span>
+      <div class="wprompt">필자가 할인을 요청하는 이유를 본문에 근거하여 완전한 영어 문장으로 쓰시오.</div>
+      <div class="wcond">조건 · 완전한 영어 문장, 15단어 내외.</div>
+      <textarea class="wtext" placeholder="Because ..."></textarea>
+      <button class="showans" onclick="toggleAns('m12')">모범답안 보기</button>
+      <div class="modelans" id="m12"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">Because they can pick up the balls directly from the warehouse, they do not need packaging or transportation.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="passage" id="passage-2" style="display:none">
+  <div class="ptitle">
+    <span class="qno">Q 02</span>
+    <div class="en">Noah and the Meteor Shower</div>
+    <div class="ko">노아와 유성우 · 26005-0161</div>
+    <span class="type">유형 · 심경 변화 파악</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" id="tab-2-1" onclick="showTab(2,1)">전문</button>
+    <button class="tab" id="tab-2-2" onclick="showTab(2,2)">문장분석</button>
+    <button class="tab" id="tab-2-3" onclick="showTab(2,3)">핵심단어 및 표현</button>
+    <button class="tab" id="tab-2-4" onclick="showTab(2,4)">전문해석</button>
+    <button class="tab" id="tab-2-5" onclick="showTab(2,5)">주제와 요지</button>
+    <button class="tab" id="tab-2-6" onclick="showTab(2,6)">변형문제</button>
+  </div>
+
+  <!-- 전문 -->
+  <div class="tabpanel" id="pane-2-1">
+    <div class="fulltext">
+      Noah sat on the park bench, watching people set up telescopes. His parents had brought him to see a meteor shower, but he didn&#39;t care much. He had never thought the night sky was interesting. Stars were just tiny dots, and he didn&#39;t see why people were so excited. He folded his arms and stared at the ground, waiting for time to pass. Around him, voices buzzed with excitement, but he barely listened. Then, a sudden wave of surprise spread through the crowd. He looked up. A bright line of light shot across the sky, then another. The meteors burned fast, disappearing in seconds. His eyes widened. How often did this happen? Could he predict the next one? Were there more coming? He leaned forward, scanning every corner of the sky. The stars, once meaningless, now held his full attention. For the first time, he truly wanted to see more.
+    </div>
+    <div class="note"><b>심경 변화</b> · uninterested(무관심한) &rarr; curious(호기심 있는) (정답 &#9315;)</div>
+  </div>
+
+  <!-- 문장분석 -->
+  <div class="tabpanel" id="pane-2-2" style="display:none">
+    <div class="fulltext" style="font-size:15px;line-height:1.7;margin-bottom:22px;">
+      Noah sat on the park bench, watching people set up telescopes. ... A bright line of light shot across the sky, then another. ... The stars, once meaningless, now held his full attention. For the first time, he truly wanted to see more.
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9312;</span><span>Noah sat on the park bench, watching people set up telescopes.</span></div>
+      <div class="literal"><div class="slash">Noah sat / on the park bench, / watching people set up telescopes.</div><div class="kor">노아는 앉아 있었다 / 공원 벤치에 / 사람들이 망원경을 설치하는 것을 지켜보면서.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 분사구문(동시동작)</span> <span class="a">&#9654; watching ... = while he watched</span></p>
+        <p><span class="d">&#9670; 지각동사 watch + 목적어 + 동사원형</span> <span class="a">&#9654; watch people set up</span> <span class="s">&#9733; &lsquo;~가 …하는 것을 보다&rsquo; (원형/-ing)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9313;</span><span>His parents had brought him to see a meteor shower, but he didn&#39;t care much.</span></div>
+      <div class="literal"><div class="slash">His parents had brought him / to see a meteor shower, / but he didn&#39;t care much.</div><div class="kor">그의 부모는 그를 데려왔다 / 유성우를 보기 위해 / 하지만 그는 별로 관심이 없었다.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 과거완료 had brought</span> <span class="a">&#9654; 과거(관심 없던 시점)보다 이전 &mdash; 대과거</span></p>
+        <p><span class="d">&#9670; to부정사(목적)</span> <span class="a">&#9654; to see &mdash; &lsquo;~하기 위해&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9314;</span><span>He had never thought the night sky was interesting.</span></div>
+      <div class="literal"><div class="slash">He had never thought / the night sky was interesting.</div><div class="kor">그는 생각해 본 적이 전혀 없었다 / 밤하늘이 흥미롭다고.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 과거완료 경험(never)</span> <span class="a">&#9654; had never thought</span></p>
+        <p><span class="d">&#9670; 목적어절 that 생략</span> <span class="a">&#9654; thought (that) the night sky was ...</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9315;</span><span>Stars were just tiny dots, and he didn&#39;t see why people were so excited.</span></div>
+      <div class="literal"><div class="slash">Stars were just tiny dots, / and he didn&#39;t see / why people were so excited.</div><div class="kor">별들은 그저 작은 점들이었다 / 그리고 그는 이해하지 못했다 / 왜 사람들이 그렇게 흥분하는지.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 간접의문문</span> <span class="a">&#9654; why people were ... &mdash; &lsquo;의문사+주어+동사&rsquo;</span> <span class="s">&#9733; why were people(&times;)</span></p>
+        <p><span class="d">&#9670; see = understand(이해하다)</span> <span class="a">&#9654; didn&#39;t see why</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9316;</span><span>He folded his arms and stared at the ground, waiting for time to pass.</span></div>
+      <div class="literal"><div class="slash">He folded his arms / and stared at the ground, / waiting for time to pass.</div><div class="kor">그는 팔짱을 꼈다 / 그리고 땅을 응시했다 / 시간이 지나기를 기다리면서.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 분사구문 waiting</span> <span class="a">&#9654; = as he waited &mdash; 부대상황</span></p>
+        <p><span class="d">&#9670; wait for + 목적어 + to부정사</span> <span class="a">&#9654; waiting for time to pass (time이 의미상 주어)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9317;</span><span>Around him, voices buzzed with excitement, but he barely listened.</span></div>
+      <div class="literal"><div class="slash">Around him, / voices buzzed with excitement, / but he barely listened.</div><div class="kor">그의 주변에서 / 목소리들이 흥분으로 웅성거렸다 / 하지만 그는 거의 듣지 않았다.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 준부정어 barely</span> <span class="a">&#9654; he barely listened &mdash; &lsquo;거의 ~않다&rsquo;</span> <span class="s">&#9733; 이미 부정 의미 &mdash; not과 중복 불가</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9318;</span><span>Then, a sudden wave of surprise spread through the crowd.</span></div>
+      <div class="literal"><div class="slash">Then, / a sudden wave of surprise / spread / through the crowd.</div><div class="kor">그때, / 갑작스러운 놀라움의 물결이 / 퍼졌다 / 군중 사이로.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; spread (무변화 동사)</span> <span class="a">&#9654; spread&mdash;spread&mdash;spread</span> <span class="s">&#9733; 시제는 문맥으로 판단(여기서는 과거)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9319;</span><span>He looked up.</span></div>
+      <div class="literal"><div class="slash">He looked up.</div><div class="kor">그는 올려다보았다.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 자동사 + 부사(구동사)</span> <span class="a">&#9654; look up &mdash; 태도 변화의 전환점</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9320;</span><span>A bright line of light shot across the sky, then another.</span></div>
+      <div class="literal"><div class="slash">A bright line of light / shot across the sky, / then another.</div><div class="kor">밝은 빛줄기가 / 하늘을 가로질러 쏜살같이 지나갔다 / 그리고 또 하나가.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; shoot의 과거 shot</span> <span class="a">&#9654; shot across &mdash; &lsquo;빠르게 지나가다&rsquo; (불규칙)</span></p>
+        <p><span class="d">&#9670; another = another line of light</span> <span class="a">&#9654; 반복 명사 생략(대명사적 용법)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9321;</span><span>The meteors burned fast, disappearing in seconds.</span></div>
+      <div class="literal"><div class="slash">The meteors burned fast, / disappearing in seconds.</div><div class="kor">유성들은 빠르게 타올랐다 / 몇 초 만에 사라지면서.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 분사구문 disappearing</span> <span class="a">&#9654; = and disappeared &mdash; 연속/결과</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9322;</span><span>His eyes widened.</span></div>
+      <div class="literal"><div class="slash">His eyes widened.</div><div class="kor">그의 눈이 커졌다.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; widen(자동사)</span> <span class="a">&#9654; wide + -en &mdash; &lsquo;넓어지다/커지다&rsquo; (놀람의 반응)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9323;</span><span>How often did this happen?</span></div>
+      <div class="literal"><div class="slash">How often / did this happen?</div><div class="kor">얼마나 자주 / 이런 일이 일어났을까?</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 의문사 how often(빈도)</span> <span class="a">&#9654; did + 주어 + 동사원형 &mdash; 내적 독백</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9324;</span><span>Could he predict the next one?</span></div>
+      <div class="literal"><div class="slash">Could he predict / the next one?</div><div class="kor">그가 예측할 수 있을까 / 다음 것을?</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 조동사 의문문 Could</span> <span class="a">&#9654; 가능성/추측 &mdash; 인물의 궁금증</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9325;</span><span>Were there more coming?</span></div>
+      <div class="literal"><div class="slash">Were there / more coming?</div><div class="kor">더 많은 것이 오고 있을까?</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; There + be 의문문</span> <span class="a">&#9654; Were there ...? &mdash; 유도부사 there</span></p>
+        <p><span class="d">&#9670; 현재분사 후치수식</span> <span class="a">&#9654; more (that were) coming</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9326;</span><span>He leaned forward, scanning every corner of the sky.</span></div>
+      <div class="literal"><div class="slash">He leaned forward, / scanning every corner of the sky.</div><div class="kor">그는 몸을 앞으로 기울였다 / 하늘의 모든 구석을 살피면서.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 분사구문 scanning</span> <span class="a">&#9654; 동시동작 &mdash; 관심/몰입 표현</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9327;</span><span>The stars, once meaningless, now held his full attention.</span></div>
+      <div class="literal"><div class="slash">The stars, / once meaningless, / now held his full attention.</div><div class="kor">그 별들은 / 한때 무의미했던 / 이제 그의 온전한 관심을 사로잡았다.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 삽입 형용사구 once meaningless</span> <span class="a">&#9654; The stars (which were) once meaningless</span></p>
+        <p><span class="d">&#9670; 시간 대조 once &harr; now</span> <span class="a">&#9654; 심경 변화 강조(대비 구조)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9328;</span><span>For the first time, he truly wanted to see more.</span></div>
+      <div class="literal"><div class="slash">For the first time, / he truly wanted / to see more.</div><div class="kor">난생처음으로, / 그는 진심으로 원했다 / 더 보기를.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; for the first time</span> <span class="a">&#9654; &lsquo;처음으로&rsquo; &mdash; 변화의 완성</span></p>
+        <p><span class="d">&#9670; want to +동사원형</span> <span class="a">&#9654; to see &mdash; 심경(호기심)의 직접 표현</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심단어 -->
+  <div class="tabpanel" id="pane-2-3" style="display:none">
+    <div class="voc"><span class="w">telescope</span><span class="mean">망원경</span><span class="pos">n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">meteor shower</span><span class="mean">유성우</span><span class="pos">n.</span><span class="der"><b>파생</b> meteor (n.)</span></div>
+    <div class="voc"><span class="w">care</span><span class="mean">관심을 갖다; 상관하다</span><span class="pos">v.</span><span class="der"><b>파생</b> caring (adj.), careful (adj.)</span></div>
+    <div class="voc"><span class="w">fold</span><span class="mean">(팔짱을) 끼다; 접다</span><span class="pos">v.</span><span class="der"><b>파생</b> folded (adj.)</span></div>
+    <div class="voc"><span class="w">stare</span><span class="mean">응시하다</span><span class="pos">v.</span><span class="der"><b>파생</b> staring (adj.)</span></div>
+    <div class="voc"><span class="w">buzz</span><span class="mean">웅성거리다; 윙윙거리다</span><span class="pos">v.</span><span class="der"><b>파생</b> buzzing (adj.)</span></div>
+    <div class="voc"><span class="w">excitement</span><span class="mean">흥분, 들뜸</span><span class="pos">n.</span><span class="der"><b>파생</b> excite (v.), excited/exciting (adj.)</span></div>
+    <div class="voc"><span class="w">barely</span><span class="mean">거의 ~않다</span><span class="pos">adv.</span><span class="der"><b>파생</b> bare (adj.)</span></div>
+    <div class="voc"><span class="w">sudden</span><span class="mean">갑작스러운</span><span class="pos">adj.</span><span class="der"><b>파생</b> suddenly (adv.)</span></div>
+    <div class="voc"><span class="w">spread</span><span class="mean">퍼지다, 확산되다</span><span class="pos">v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">predict</span><span class="mean">예측하다</span><span class="pos">v.</span><span class="der"><b>파생</b> prediction (n.), predictable (adj.)</span></div>
+    <div class="voc"><span class="w">lean</span><span class="mean">기울이다, 기대다</span><span class="pos">v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">scan</span><span class="mean">훑어보다, 살피다</span><span class="pos">v.</span><span class="der"><b>파생</b> scanner (n.)</span></div>
+    <div class="voc"><span class="w">meaningless</span><span class="mean">무의미한</span><span class="pos">adj.</span><span class="der"><b>파생</b> meaning (n.), meaningful (adj.)</span></div>
+    <div class="voc"><span class="w">attention</span><span class="mean">주의, 관심</span><span class="pos">n.</span><span class="der"><b>파생</b> attentive (adj.), attend (v.)</span></div>
+  </div>
+
+  <!-- 전문해석 -->
+  <div class="tabpanel" id="pane-2-4" style="display:none">
+    <div class="trans">
+      노아는 사람들이 망원경을 설치하는 모습을 지켜보며 공원 벤치에 앉아 있었다. 그의 부모는 유성우를 보여 주려고 그를 데려왔지만, 그는 별로 관심이 없었다. 그는 밤하늘이 흥미롭다고 생각해 본 적이 한 번도 없었다. 별은 그저 작은 점일 뿐이었고, 그는 사람들이 왜 그렇게 들떠 있는지 이해하지 못했다. 그는 팔짱을 낀 채 땅을 바라보며 시간이 지나가기만을 기다렸다. 그의 주변에서는 흥분한 목소리들이 웅성거렸지만, 그는 거의 듣지 않았다. 그때 갑작스러운 놀라움의 물결이 군중 사이로 퍼졌다. 그는 고개를 들었다. 밝은 빛줄기 하나가 하늘을 가로질러 지나갔고, 뒤이어 또 하나가 지나갔다. 유성들은 빠르게 타오르며 몇 초 만에 사라졌다. 그의 눈이 휘둥그레졌다. 이런 일이 얼마나 자주 일어날까? 다음 것을 예측할 수 있을까? 더 올 것이 있을까? 그는 몸을 앞으로 기울여 하늘의 구석구석을 살폈다. 한때 무의미했던 별들이 이제 그의 온전한 관심을 사로잡았다. 난생처음으로 그는 진심으로 더 보고 싶어졌다.
+    </div>
+  </div>
+
+  <!-- 주제와 요지 -->
+  <div class="tabpanel" id="pane-2-5" style="display:none">
+    <div class="theme">
+      <div class="row"><div class="k">TOPIC · 주제</div><div class="v">유성우를 목격한 뒤 일어난 Noah의 심경 변화</div></div>
+      <div class="row"><div class="k">MAIN IDEA · 요지</div><div class="v">밤하늘에 무관심하던 Noah가 유성이 하늘을 가로지르는 장면을 보고 강한 호기심과 몰입을 느끼게 된다.</div></div>
+      <div class="row"><div class="k navy">STRUCTURE · 구조 흐름</div><div class="flow"><div>무관심 &mdash; 팔짱 끼고 땅만 응시, 시간이 가기만 기다림</div><div>전환 &mdash; 갑작스러운 놀라움의 물결, 고개를 듦</div><div>몰입 &mdash; 유성 목격 후 질문이 쏟아지고 하늘을 살핌</div><div>변화 완성 &mdash; 처음으로 더 보고 싶어짐</div></div></div>
+      <div class="row ans"><div class="k">ANSWER · 심경 변화</div><div class="v">uninterested(무관심한) &rarr; curious(호기심 있는) &mdash; 정답 &#9315;</div></div>
+    </div>
+  </div>
+
+  <!-- 변형문제 -->
+  <div class="tabpanel" id="pane-2-6" style="display:none">
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q1</span><span class="qtype">주제 추론</span></div>
+      <div class="qstem">이 글의 주제로 가장 적절한 것은?</div>
+      <div class="opts" id="q21-opts">
+        <div class="opt" onclick="pick('q21',1,3)"><span class="on">&#9312;</span><span class="ot">유성우 관측에 필요한 준비물</span></div>
+        <div class="opt" onclick="pick('q21',2,3)"><span class="on">&#9313;</span><span class="ot">밤하늘 관측의 과학적 원리</span></div>
+        <div class="opt" onclick="pick('q21',3,3)"><span class="on">&#9314;</span><span class="ot">유성우를 본 뒤 바뀐 소년의 심경</span></div>
+        <div class="opt" onclick="pick('q21',4,3)"><span class="on">&#9315;</span><span class="ot">부모와 자녀의 취미 공유의 중요성</span></div>
+        <div class="opt" onclick="pick('q21',5,3)"><span class="on">&#9316;</span><span class="ot">도시에서 별을 관측하기 어려운 이유</span></div>
+      </div>
+      <div class="exp" id="q21-exp"><b>정답 &#9314;</b> · 무관심 &rarr; 호기심으로의 심경 변화가 글의 중심이다.</div>
+      <button class="reset" onclick="resetQuiz('q21')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q2</span><span class="qtype">빈칸 추론</span></div>
+      <div class="qstem"><span class="en">The stars, once meaningless, now <span class="blank">______</span>.</span></div>
+      <div class="opts" id="q22-opts">
+        <div class="opt" onclick="pick('q22',1,2)"><span class="on">&#9312;</span><span class="ot en">made him sleepy</span></div>
+        <div class="opt" onclick="pick('q22',2,2)"><span class="on">&#9313;</span><span class="ot en">held his full attention</span></div>
+        <div class="opt" onclick="pick('q22',3,2)"><span class="on">&#9314;</span><span class="ot en">blocked his view</span></div>
+        <div class="opt" onclick="pick('q22',4,2)"><span class="on">&#9315;</span><span class="ot en">frightened the crowd</span></div>
+        <div class="opt" onclick="pick('q22',5,2)"><span class="on">&#9316;</span><span class="ot en">disappeared from sight</span></div>
+      </div>
+      <div class="exp" id="q22-exp"><b>정답 &#9313;</b> · 무관심하던 별이 이제 관심을 &lsquo;사로잡았다&rsquo; &mdash; held his full attention.</div>
+      <button class="reset" onclick="resetQuiz('q22')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q3</span><span class="qtype">어법 오류</span></div>
+      <div class="qstem">밑줄 친 부분 중, 어법상 <b>틀린</b> 것은?<br>
+        <span class="en">His parents had brought him <u>&#9312;to see</u> a meteor shower, but he didn&#39;t care much. He <u>&#9313;had never thought</u> the night sky <u>&#9314;was</u> interesting. He folded his arms and <u>&#9315;staring</u> at the ground, <u>&#9316;waiting</u> for time to pass.</span></div>
+      <div class="opts" id="q23-opts">
+        <div class="opt" onclick="pick('q23',1,4)"><span class="on">&#9312;</span><span class="ot en">to see</span></div>
+        <div class="opt" onclick="pick('q23',2,4)"><span class="on">&#9313;</span><span class="ot en">had never thought</span></div>
+        <div class="opt" onclick="pick('q23',3,4)"><span class="on">&#9314;</span><span class="ot en">was</span></div>
+        <div class="opt" onclick="pick('q23',4,4)"><span class="on">&#9315;</span><span class="ot en">staring</span></div>
+        <div class="opt" onclick="pick('q23',5,4)"><span class="on">&#9316;</span><span class="ot en">waiting</span></div>
+      </div>
+      <div class="exp" id="q23-exp"><b>정답 &#9315;</b> · folded와 병렬을 이루는 과거동사여야 하므로 staring &rarr; <b>stared</b>.</div>
+      <button class="reset" onclick="resetQuiz('q23')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q4</span><span class="qtype">내용 불일치</span></div>
+      <div class="qstem">이 글의 내용과 <b>일치하지 않는</b> 것은?</div>
+      <div class="opts" id="q24-opts">
+        <div class="opt" onclick="pick('q24',1,4)"><span class="on">&#9312;</span><span class="ot">노아는 부모와 함께 왔다.</span></div>
+        <div class="opt" onclick="pick('q24',2,4)"><span class="on">&#9313;</span><span class="ot">노아는 처음엔 밤하늘에 관심이 없었다.</span></div>
+        <div class="opt" onclick="pick('q24',3,4)"><span class="on">&#9314;</span><span class="ot">유성은 몇 초 만에 사라졌다.</span></div>
+        <div class="opt" onclick="pick('q24',4,4)"><span class="on">&#9315;</span><span class="ot">노아는 끝까지 지루해하며 자리를 떠났다.</span></div>
+        <div class="opt" onclick="pick('q24',5,4)"><span class="on">&#9316;</span><span class="ot">유성을 본 뒤 노아는 더 보고 싶어졌다.</span></div>
+      </div>
+      <div class="exp" id="q24-exp"><b>정답 &#9315;</b> · 마지막에 처음으로 더 보고 싶어졌다고 했으므로 일치하지 않는다.</div>
+      <button class="reset" onclick="resetQuiz('q24')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q5</span><span class="qtype">글의 순서</span></div>
+      <div class="qstem">주어진 글 다음에 이어질 순서로 가장 적절한 것은?<br>
+        <span class="en" style="display:block;margin-top:6px;color:#5a6478;">[주어진 글] Noah sat on the park bench ... he didn&#39;t care much.<br>
+        (A) Then, a sudden wave of surprise spread through the crowd. He looked up.<br>
+        (B) He folded his arms and stared at the ground, waiting for time to pass.<br>
+        (C) The stars, once meaningless, now held his full attention. For the first time, he truly wanted to see more.</span></div>
+      <div class="opts" id="q25-opts">
+        <div class="opt" onclick="pick('q25',1,3)"><span class="on">&#9312;</span><span class="ot en">(A) - (B) - (C)</span></div>
+        <div class="opt" onclick="pick('q25',2,3)"><span class="on">&#9313;</span><span class="ot en">(A) - (C) - (B)</span></div>
+        <div class="opt" onclick="pick('q25',3,3)"><span class="on">&#9314;</span><span class="ot en">(B) - (A) - (C)</span></div>
+        <div class="opt" onclick="pick('q25',4,3)"><span class="on">&#9315;</span><span class="ot en">(B) - (C) - (A)</span></div>
+        <div class="opt" onclick="pick('q25',5,3)"><span class="on">&#9316;</span><span class="ot en">(C) - (A) - (B)</span></div>
+      </div>
+      <div class="exp" id="q25-exp"><b>정답 &#9314;</b> · 무관심(B) &rarr; 전환·놀람(A) &rarr; 몰입·변화(C).</div>
+      <button class="reset" onclick="resetQuiz('q25')">다시 풀기</button>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 1 · 빈칸 요약</span>
+      <div class="wprompt"><span class="en">Noah changes from being <span class="blank"> (1) </span> in the night sky to feeling great <span class="blank"> (2) </span> after watching the meteors.</span></div>
+      <div class="wcond">조건 · 글의 흐름에 맞게 각 빈칸에 한 단어씩 쓰시오.</div>
+      <textarea class="wtext" placeholder="(1) __________  /  (2) __________"></textarea>
+      <button class="showans" onclick="toggleAns('m21')">모범답안 보기</button>
+      <div class="modelans" id="m21"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">(1) uninterested &nbsp; (2) curiosity</span> &nbsp;(문맥상 타당하면 (1) bored / (2) interest 등도 인정)</div></div>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 2 · 영작</span>
+      <div class="wprompt">노아의 심경이 어떻게, 왜 변했는지 본문에 근거하여 완전한 영어 문장으로 쓰시오.</div>
+      <div class="wcond">조건 · 완전한 영어 문장, 25단어 내외.</div>
+      <textarea class="wtext" placeholder="At first Noah was ..."></textarea>
+      <button class="showans" onclick="toggleAns('m22')">모범답안 보기</button>
+      <div class="modelans" id="m22"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">At first Noah was uninterested in the night sky, but after seeing bright meteors shoot across the sky, he became curious and wanted to see more.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="passage" id="passage-3" style="display:none">
+  <div class="ptitle">
+    <span class="qno">Q 03</span>
+    <div class="en">Educating Employees on Privacy</div>
+    <div class="ko">직원 대상 개인정보 보호 교육 · 26005-0162</div>
+    <span class="type">유형 · 필자 주장 파악</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" id="tab-3-1" onclick="showTab(3,1)">전문</button>
+    <button class="tab" id="tab-3-2" onclick="showTab(3,2)">문장분석</button>
+    <button class="tab" id="tab-3-3" onclick="showTab(3,3)">핵심단어 및 표현</button>
+    <button class="tab" id="tab-3-4" onclick="showTab(3,4)">전문해석</button>
+    <button class="tab" id="tab-3-5" onclick="showTab(3,5)">주제와 요지</button>
+    <button class="tab" id="tab-3-6" onclick="showTab(3,6)">변형문제</button>
+  </div>
+
+  <!-- 전문 -->
+  <div class="tabpanel" id="pane-3-1">
+    <div class="fulltext">
+      Employees who are not privacy &ldquo;literate&rdquo; represent a vulnerability for businesses. They may compromise privacy and security measures and expose personal or confidential information without realizing it. Employee online access rights can and should be limited to what each employee needs to perform his or her job. However, while physical barriers, firewalls, passwords, and other security measures are useful, for most organizations access to large amounts of sensitive information by employees is necessary to do business. The key to ensuring employee adherence to privacy and security measures is to educate them and to develop a practice of ongoing education and other opportunities for reinforcement of the role that all employees play in securing critical information privacy by adhering to proper privacy and security protocols. Employees may have differing levels of access to information, but all should understand the importance of protecting private or confidential information and how their actions affect the security of this information. The very nature of private or commercially confidential information means that it should not be made publicly available.
+    </div>
+    <div class="note"><b>필자 주장</b> · 기업의 모든 직원에게 개인·비밀 정보 보호 교육을 지속적으로 시행해야 한다 (정답 &#9316;)</div>
+  </div>
+
+  <!-- 문장분석 -->
+  <div class="tabpanel" id="pane-3-2" style="display:none">
+    <div class="fulltext" style="font-size:15px;line-height:1.7;margin-bottom:22px;">
+      Employees who are not privacy &ldquo;literate&rdquo; represent a vulnerability for businesses. ... The key to ensuring employee adherence ... is to educate them ... The very nature of private or commercially confidential information means that it should not be made publicly available.
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9312;</span><span>Employees who are not privacy &ldquo;literate&rdquo; represent a vulnerability for businesses.</span></div>
+      <div class="literal"><div class="slash">Employees / who are not privacy &ldquo;literate&rdquo; / represent a vulnerability / for businesses.</div><div class="kor">직원들은 / 개인정보에 대해 &lsquo;잘 아는&rsquo; 상태가 아닌 / 취약점이 된다 / 기업에 있어.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 주격 관계대명사 who</span> <span class="a">&#9654; Employees who are not ... &mdash; 선행사 Employees 수식</span> <span class="s">&#9733; 주어가 길 때 본동사(represent) 위치 확인</span></p>
+        <p><span class="d">&#9670; literate(형용사)</span> <span class="a">&#9654; &lsquo;~에 대한 지식이 있는&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9313;</span><span>They may compromise privacy and security measures and expose personal or confidential information without realizing it.</span></div>
+      <div class="literal"><div class="slash">They may compromise / privacy and security measures / and expose / personal or confidential information / without realizing it.</div><div class="kor">그들은 훼손할 수 있다 / 개인정보 및 보안 조치를 / 그리고 노출할 수 있다 / 개인적이거나 기밀인 정보를 / 그것을 알아차리지 못한 채.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 조동사 may + 병렬 동사원형</span> <span class="a">&#9654; may compromise ... and expose &mdash; 하나의 may가 두 동사 지배</span></p>
+        <p><span class="d">&#9670; without + 동명사</span> <span class="a">&#9654; without realizing &mdash; &lsquo;~하지 않은 채&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9314;</span><span>Employee online access rights can and should be limited to what each employee needs to perform his or her job.</span></div>
+      <div class="literal"><div class="slash">Employee online access rights / can and should be limited / to what each employee needs / to perform his or her job.</div><div class="kor">직원의 온라인 접근 권한은 / 제한될 수 있고 제한되어야 한다 / 각 직원이 필요로 하는 것으로 / 자신의 업무를 수행하기 위해.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 조동사 병렬 can and should</span> <span class="a">&#9654; can and should be limited &mdash; 두 조동사가 하나의 수동태 공유</span></p>
+        <p><span class="d">&#9670; 관계대명사 what</span> <span class="a">&#9654; to what each employee needs &mdash; &lsquo;~하는 것&rsquo;(the thing which)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9315;</span><span>However, while physical barriers, firewalls, passwords, and other security measures are useful, for most organizations access to large amounts of sensitive information by employees is necessary to do business.</span></div>
+      <div class="literal"><div class="slash">However, / while ... security measures are useful, / for most organizations / access to large amounts of sensitive information by employees / is necessary / to do business.</div><div class="kor">그러나, / 물리적 장벽·방화벽·비밀번호 등 보안 조치가 유용하긴 하지만, / 대부분의 조직에게 / 직원에 의한 대량의 민감 정보 접근은 / 필요하다 / 사업을 하기 위해.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 접속사 while(양보/대조)</span> <span class="a">&#9654; while ... are useful &mdash; &lsquo;~이긴 하지만&rsquo;</span></p>
+        <p><span class="d">&#9670; 긴 주어 + 단수동사</span> <span class="a">&#9654; access ... is necessary</span> <span class="s">&#9733; 핵심 주어는 access(단수) &mdash; 수식어에 현혹 금지</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9316;</span><span>The key to ensuring employee adherence to privacy and security measures is to educate them and to develop a practice of ongoing education and other opportunities for reinforcement of the role that all employees play in securing critical information privacy by adhering to proper privacy and security protocols.</span></div>
+      <div class="literal"><div class="slash">The key to ensuring employee adherence / ... / is / to educate them / and to develop a practice of ongoing education / ... / of the role that all employees play / in securing critical information privacy / by adhering to proper privacy and security protocols.</div><div class="kor">직원의 (보안) 준수를 보장하는 열쇠는 / ~이다 / 그들을 교육하는 것 / 그리고 지속적 교육의 관행을 개발하는 것 / … / 모든 직원이 하는 역할의 (강화를 위한) / 핵심 정보의 개인정보 보호를 확보하는 데 있어 / 적절한 규약을 준수함으로써.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; The key to +동명사</span> <span class="a">&#9654; The key to ensuring &mdash; 여기서 to는 전치사</span></p>
+        <p><span class="d">&#9670; 주격보어 to부정사 병렬</span> <span class="a">&#9654; is to educate ... and to develop ...</span></p>
+        <p><span class="d">&#9670; 목적격 관계대명사 that</span> <span class="a">&#9654; the role that all employees play</span></p>
+        <p><span class="d">&#9670; by +동명사(수단)</span> <span class="a">&#9654; by adhering &mdash; &lsquo;~함으로써&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9317;</span><span>Employees may have differing levels of access to information, but all should understand the importance of protecting private or confidential information and how their actions affect the security of this information.</span></div>
+      <div class="literal"><div class="slash">Employees may have / differing levels of access to information, / but all should understand / the importance of protecting ... information / and how their actions affect the security of this information.</div><div class="kor">직원들은 가질 수 있다 / 정보에 대한 서로 다른 접근 수준을 / 하지만 모두가 이해해야 한다 / 정보를 보호하는 것의 중요성을 / 그리고 자신의 행동이 이 정보의 보안에 어떻게 영향을 미치는지를.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 현재분사 형용사 differing</span> <span class="a">&#9654; differing levels &mdash; &lsquo;서로 다른&rsquo;</span></p>
+        <p><span class="d">&#9670; 목적어 병렬(명사 + 의문사절)</span> <span class="a">&#9654; the importance ... and how ...</span></p>
+        <p><span class="d">&#9670; 간접의문문</span> <span class="a">&#9654; how their actions affect ...</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9318;</span><span>The very nature of private or commercially confidential information means that it should not be made publicly available.</span></div>
+      <div class="literal"><div class="slash">The very nature / of private or commercially confidential information / means / that it should not be made publicly available.</div><div class="kor">바로 그 본질은 / 개인적이거나 상업적으로 기밀인 정보의 / 의미한다 / 그것이 공개적으로 이용 가능하게 되어서는 안 된다는 것을.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 강조의 very(형용사)</span> <span class="a">&#9654; The very nature &mdash; &lsquo;바로 그 본질&rsquo;</span></p>
+        <p><span class="d">&#9670; make + 목적어 + 형용사 &rarr; 수동</span> <span class="a">&#9654; be made available &mdash; 5형식의 수동태</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심단어 -->
+  <div class="tabpanel" id="pane-3-3" style="display:none">
+    <div class="voc"><span class="w">literate</span><span class="mean">(특정 분야를) 잘 아는; 읽고 쓸 줄 아는</span><span class="pos">adj.</span><span class="der"><b>파생</b> literacy (n.), literary (adj.)</span></div>
+    <div class="voc"><span class="w">vulnerability</span><span class="mean">취약점, 취약성</span><span class="pos">n.</span><span class="der"><b>파생</b> vulnerable (adj.)</span></div>
+    <div class="voc"><span class="w">compromise</span><span class="mean">훼손하다; 타협하다</span><span class="pos">v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">security</span><span class="mean">보안, 안전</span><span class="pos">n.</span><span class="der"><b>파생</b> secure (v./adj.), securely (adv.)</span></div>
+    <div class="voc"><span class="w">expose</span><span class="mean">노출하다, 드러내다</span><span class="pos">v.</span><span class="der"><b>파생</b> exposure (n.)</span></div>
+    <div class="voc"><span class="w">confidential</span><span class="mean">기밀의</span><span class="pos">adj.</span><span class="der"><b>파생</b> confidence (n.), confide (v.)</span></div>
+    <div class="voc"><span class="w">access</span><span class="mean">접근(권한); 접근하다</span><span class="pos">n./v.</span><span class="der"><b>파생</b> accessible (adj.)</span></div>
+    <div class="voc"><span class="w">barrier</span><span class="mean">장벽, 장애물</span><span class="pos">n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">sensitive</span><span class="mean">민감한</span><span class="pos">adj.</span><span class="der"><b>파생</b> sensitivity (n.)</span></div>
+    <div class="voc"><span class="w">adherence</span><span class="mean">준수, 고수</span><span class="pos">n.</span><span class="der"><b>파생</b> adhere (v.), adherent (n.)</span></div>
+    <div class="voc"><span class="w">ongoing</span><span class="mean">지속적인, 계속 진행 중인</span><span class="pos">adj.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">reinforcement</span><span class="mean">강화</span><span class="pos">n.</span><span class="der"><b>파생</b> reinforce (v.)</span></div>
+    <div class="voc"><span class="w">critical</span><span class="mean">매우 중요한; 비판적인</span><span class="pos">adj.</span><span class="der"><b>파생</b> criticize (v.), critically (adv.)</span></div>
+    <div class="voc"><span class="w">protocol</span><span class="mean">규약, 절차</span><span class="pos">n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">nature</span><span class="mean">본질; 자연</span><span class="pos">n.</span><span class="der"><b>파생</b> natural (adj.)</span></div>
+  </div>
+
+  <!-- 전문해석 -->
+  <div class="tabpanel" id="pane-3-4" style="display:none">
+    <div class="trans">
+      개인정보에 관해 &lsquo;잘 알지&rsquo; 못하는 직원들은 기업에 취약점이 된다. 그들은 자신도 모르는 사이에 개인정보 및 보안 조치를 훼손하고 개인적이거나 기밀인 정보를 노출할 수 있다. 직원의 온라인 접근 권한은 각 직원이 자신의 업무를 수행하는 데 필요한 범위로 제한될 수 있고 또 제한되어야 한다. 그러나 물리적 장벽, 방화벽, 비밀번호와 그 밖의 보안 조치가 유용하긴 해도, 대부분의 조직에서는 직원들이 대량의 민감한 정보에 접근하는 것이 사업을 운영하는 데 필요하다. 직원들이 개인정보 및 보안 조치를 확실히 준수하도록 하는 열쇠는, 그들을 교육하고, 적절한 개인정보 및 보안 규약을 준수함으로써 모든 직원이 핵심 정보의 개인정보 보호를 확보하는 데서 맡는 역할을 강화하기 위한 지속적 교육과 그 밖의 기회라는 관행을 마련하는 것이다. 직원마다 정보 접근 수준은 다를 수 있지만, 모두가 개인 또는 기밀 정보를 보호하는 일의 중요성과 자신의 행동이 이 정보의 보안에 어떻게 영향을 미치는지를 이해해야 한다. 개인적이거나 상업적으로 기밀인 정보는 그 본질상 공개적으로 이용 가능하게 되어서는 안 된다.
+    </div>
+  </div>
+
+  <!-- 주제와 요지 -->
+  <div class="tabpanel" id="pane-3-5" style="display:none">
+    <div class="theme">
+      <div class="row"><div class="k">TOPIC · 주제</div><div class="v">직원 대상 개인정보·보안 교육의 지속적 시행 필요성</div></div>
+      <div class="row"><div class="k">MAIN IDEA · 요지</div><div class="v">직원의 개인정보 이해 부족은 기업의 취약점이 되므로, 접근 권한 제한과 더불어 모든 직원을 대상으로 한 지속적 교육이 정보 보안의 핵심이다.</div></div>
+      <div class="row"><div class="k navy">STRUCTURE · 구조 흐름</div><div class="flow"><div>문제 제기 &mdash; 개인정보에 무지한 직원은 취약점</div><div>구체적 위험 &mdash; 부지불식간 정보 노출·훼손 가능</div><div>현실 &mdash; 접근 제한만으론 부족, 민감 정보 접근은 필요</div><div>해결책 &mdash; 지속적 교육으로 모든 직원의 역할 강화</div></div></div>
+      <div class="row ans"><div class="k">ANSWER · 필자 주장</div><div class="v">기업의 모든 직원에게 개인·비밀 정보 보호 교육을 지속적으로 시행해야 한다 &mdash; 정답 &#9316;</div></div>
+    </div>
+  </div>
+
+  <!-- 변형문제 -->
+  <div class="tabpanel" id="pane-3-6" style="display:none">
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q1</span><span class="qtype">주제 추론</span></div>
+      <div class="qstem">이 글의 주제로 가장 적절한 것은?</div>
+      <div class="opts" id="q31-opts">
+        <div class="opt" onclick="pick('q31',1,2)"><span class="on">&#9312;</span><span class="ot">보안 소프트웨어 도입의 비용 문제</span></div>
+        <div class="opt" onclick="pick('q31',2,2)"><span class="on">&#9313;</span><span class="ot">직원 개인정보 보호 교육의 지속적 필요성</span></div>
+        <div class="opt" onclick="pick('q31',3,2)"><span class="on">&#9314;</span><span class="ot">직원의 정보 접근 권한을 없애야 하는 이유</span></div>
+        <div class="opt" onclick="pick('q31',4,2)"><span class="on">&#9315;</span><span class="ot">기밀 정보의 상업적 활용 방안</span></div>
+        <div class="opt" onclick="pick('q31',5,2)"><span class="on">&#9316;</span><span class="ot">방화벽과 비밀번호의 기술적 원리</span></div>
+      </div>
+      <div class="exp" id="q31-exp"><b>정답 &#9313;</b> · 지속적 교육이 정보 보안의 핵심이라는 것이 글의 주제다.</div>
+      <button class="reset" onclick="resetQuiz('q31')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q2</span><span class="qtype">빈칸 추론</span></div>
+      <div class="qstem"><span class="en">The key ... is to <span class="blank">______</span> them and to develop a practice of ongoing education.</span></div>
+      <div class="opts" id="q32-opts">
+        <div class="opt" onclick="pick('q32',1,2)"><span class="on">&#9312;</span><span class="ot en">monitor</span></div>
+        <div class="opt" onclick="pick('q32',2,2)"><span class="on">&#9313;</span><span class="ot en">educate</span></div>
+        <div class="opt" onclick="pick('q32',3,2)"><span class="on">&#9314;</span><span class="ot en">replace</span></div>
+        <div class="opt" onclick="pick('q32',4,2)"><span class="on">&#9315;</span><span class="ot en">reward</span></div>
+        <div class="opt" onclick="pick('q32',5,2)"><span class="on">&#9316;</span><span class="ot en">isolate</span></div>
+      </div>
+      <div class="exp" id="q32-exp"><b>정답 &#9313;</b> · 교육(educate)이 핵심이며 뒤의 ongoing education과 호응한다.</div>
+      <button class="reset" onclick="resetQuiz('q32')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q3</span><span class="qtype">어법 오류</span></div>
+      <div class="qstem">밑줄 친 부분 중, 어법상 <b>틀린</b> 것은?<br>
+        <span class="en">Employees <u>&#9312;who</u> are not privacy literate <u>&#9313;represent</u> a vulnerability. They may compromise privacy measures and <u>&#9314;exposing</u> personal information <u>&#9315;without</u> realizing it. Access rights should be <u>&#9316;limited</u> to what each employee needs.</span></div>
+      <div class="opts" id="q33-opts">
+        <div class="opt" onclick="pick('q33',1,3)"><span class="on">&#9312;</span><span class="ot en">who</span></div>
+        <div class="opt" onclick="pick('q33',2,3)"><span class="on">&#9313;</span><span class="ot en">represent</span></div>
+        <div class="opt" onclick="pick('q33',3,3)"><span class="on">&#9314;</span><span class="ot en">exposing</span></div>
+        <div class="opt" onclick="pick('q33',4,3)"><span class="on">&#9315;</span><span class="ot en">without</span></div>
+        <div class="opt" onclick="pick('q33',5,3)"><span class="on">&#9316;</span><span class="ot en">limited</span></div>
+      </div>
+      <div class="exp" id="q33-exp"><b>정답 &#9314;</b> · may compromise ... and expose로 병렬을 이뤄야 하므로 exposing &rarr; <b>expose</b>.</div>
+      <button class="reset" onclick="resetQuiz('q33')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q4</span><span class="qtype">내용 불일치</span></div>
+      <div class="qstem">이 글의 내용과 <b>일치하지 않는</b> 것은?</div>
+      <div class="opts" id="q34-opts">
+        <div class="opt" onclick="pick('q34',1,3)"><span class="on">&#9312;</span><span class="ot">개인정보에 무지한 직원은 기업의 취약점이 될 수 있다.</span></div>
+        <div class="opt" onclick="pick('q34',2,3)"><span class="on">&#9313;</span><span class="ot">접근 권한은 업무에 필요한 만큼으로 제한되어야 한다.</span></div>
+        <div class="opt" onclick="pick('q34',3,3)"><span class="on">&#9314;</span><span class="ot">대부분의 조직은 직원의 민감 정보 접근이 전혀 필요 없다.</span></div>
+        <div class="opt" onclick="pick('q34',4,3)"><span class="on">&#9315;</span><span class="ot">직원마다 정보 접근 수준이 다를 수 있다.</span></div>
+        <div class="opt" onclick="pick('q34',5,3)"><span class="on">&#9316;</span><span class="ot">기밀 정보는 공개적으로 이용 가능해서는 안 된다.</span></div>
+      </div>
+      <div class="exp" id="q34-exp"><b>정답 &#9314;</b> · 본문은 민감 정보 접근이 사업에 &lsquo;필요하다&rsquo;고 했으므로 일치하지 않는다.</div>
+      <button class="reset" onclick="resetQuiz('q34')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q5</span><span class="qtype">글의 순서</span></div>
+      <div class="qstem">주어진 글 다음에 이어질 순서로 가장 적절한 것은?<br>
+        <span class="en" style="display:block;margin-top:6px;color:#5a6478;">[주어진 글] Employees who are not privacy literate represent a vulnerability for businesses.<br>
+        (A) The key to ensuring employee adherence ... is to educate them and to develop ... ongoing education ...<br>
+        (B) They may compromise privacy and security measures and expose ... information without realizing it.<br>
+        (C) However, while ... security measures are useful, ... access ... is necessary to do business.</span></div>
+      <div class="opts" id="q35-opts">
+        <div class="opt" onclick="pick('q35',1,3)"><span class="on">&#9312;</span><span class="ot en">(A) - (B) - (C)</span></div>
+        <div class="opt" onclick="pick('q35',2,3)"><span class="on">&#9313;</span><span class="ot en">(B) - (A) - (C)</span></div>
+        <div class="opt" onclick="pick('q35',3,3)"><span class="on">&#9314;</span><span class="ot en">(B) - (C) - (A)</span></div>
+        <div class="opt" onclick="pick('q35',4,3)"><span class="on">&#9315;</span><span class="ot en">(C) - (A) - (B)</span></div>
+        <div class="opt" onclick="pick('q35',5,3)"><span class="on">&#9316;</span><span class="ot en">(C) - (B) - (A)</span></div>
+      </div>
+      <div class="exp" id="q35-exp"><b>정답 &#9314;</b> · 문제 제기 &rarr; 구체적 위험(B) &rarr; 그럼에도 접근은 필요(C) &rarr; 해결책=교육(A).</div>
+      <button class="reset" onclick="resetQuiz('q35')">다시 풀기</button>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 1 · 빈칸 요약</span>
+      <div class="wprompt"><span class="en">Because limiting access alone is not enough, the key to protecting information is ongoing <span class="blank"> (1) </span> so that all employees understand their <span class="blank"> (2) </span> in security.</span></div>
+      <div class="wcond">조건 · 본문 흐름에 맞게 각 빈칸에 한 단어씩 쓰시오.</div>
+      <textarea class="wtext" placeholder="(1) __________  /  (2) __________"></textarea>
+      <button class="showans" onclick="toggleAns('m31')">모범답안 보기</button>
+      <div class="modelans" id="m31"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">(1) education &nbsp; (2) role</span></div></div>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 2 · 서술</span>
+      <div class="wprompt">필자가 정보 보안의 핵심으로 제시하는 방법과 그 이유를 본문에 근거하여 한국어 2문장으로 서술하시오.</div>
+      <div class="wcond">조건 · 한국어 2문장, &lsquo;방법&rsquo;과 &lsquo;이유&rsquo;를 모두 포함.</div>
+      <textarea class="wtext" placeholder="방법: ... / 이유: ..."></textarea>
+      <button class="showans" onclick="toggleAns('m32')">모범답안 보기</button>
+      <div class="modelans" id="m32"><div class="mlab">MODEL ANSWER</div><div class="mtx">필자는 모든 직원을 대상으로 한 지속적인 교육을 정보 보안의 핵심으로 제시한다. 접근 권한 제한이나 기술적 보안만으로는 충분하지 않고, 직원들이 자신의 행동이 정보 보안에 미치는 영향과 정보 보호의 중요성을 이해해야 하기 때문이다.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="passage" id="passage-4" style="display:none">
+  <div class="ptitle">
+    <span class="qno">Q 04</span>
+    <div class="en">The Sight That Blinds Us</div>
+    <div class="ko">우리를 눈멀게 하는 시각 · 26005-0163</div>
+    <span class="type">유형 · 밑줄 함의 추론</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" id="tab-4-1" onclick="showTab(4,1)">전문</button>
+    <button class="tab" id="tab-4-2" onclick="showTab(4,2)">문장분석</button>
+    <button class="tab" id="tab-4-3" onclick="showTab(4,3)">핵심단어 및 표현</button>
+    <button class="tab" id="tab-4-4" onclick="showTab(4,4)">전문해석</button>
+    <button class="tab" id="tab-4-5" onclick="showTab(4,5)">주제와 요지</button>
+    <button class="tab" id="tab-4-6" onclick="showTab(4,6)">변형문제</button>
+  </div>
+
+  <!-- 전문 -->
+  <div class="tabpanel" id="pane-4-1">
+    <div class="fulltext">
+      An odd, but interesting trigger I ran across while researching, was introduced by a man called Robert who had already recovered about 75 percent from RSI after reading Dr. Sarno&#39;s second book. He would have been nearly 100 percent recovered but he could not change the pattern of pain that occurred when using his right index finger to click the computer&#39;s mouse. In Robert&#39;s own words, &ldquo;The strange part is that my finger and hand don&#39;t hurt when I close my eyes and move/click the mouse. It&#39;s as if the screen (and software) is the trigger for the pain!&rdquo; He reduces his visual acuity when he closes his eyes, one of his senses. So, closing his eyes allegorically opens them by removing the sensory trigger. If he unconsciously despises staring at his computer screen because staring at it is in conflict with his unconscious wants and needs, then closing his eyes &ldquo;cuts out&rdquo; the source of information that triggers his anger, i.e., his eyesight. Sight is one of the senses that blinds us (Lao Tzu).
+    </div>
+    <div class="note"><b>밑줄 의미</b> · 시각에 대한 의존이 실재를 있는 그대로 보지 못하게 할 수 있다 (정답 &#9315;)</div>
+  </div>
+
+  <!-- 문장분석 -->
+  <div class="tabpanel" id="pane-4-2" style="display:none">
+    <div class="fulltext" style="font-size:15px;line-height:1.7;margin-bottom:22px;">
+      An odd, but interesting trigger ... was introduced by a man called Robert ... In Robert&#39;s own words, &ldquo;... my finger and hand don&#39;t hurt when I close my eyes ...&rdquo; ... Sight is one of the senses that blinds us (Lao Tzu).
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9312;</span><span>An odd, but interesting trigger I ran across while researching, was introduced by a man called Robert who had already recovered about 75 percent from RSI after reading Dr. Sarno&#39;s second book.</span></div>
+      <div class="literal"><div class="slash">An odd, but interesting trigger / I ran across / while researching, / was introduced / by a man called Robert / who had already recovered about 75 percent from RSI / after reading Dr. Sarno&#39;s second book.</div><div class="kor">이상하지만 흥미로운 한 계기는 / 내가 우연히 마주친 / 연구하던 중에 / 소개되었다 / Robert라는 사람에 의해 / RSI로부터 이미 약 75%를 회복한 / Sarno 박사의 두 번째 책을 읽은 후에.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 목적격 관계대명사 생략</span> <span class="a">&#9654; trigger (that) I ran across</span></p>
+        <p><span class="d">&#9670; 수동태 was introduced by</span> <span class="a">&#9654; &lsquo;~에 의해 소개되다&rsquo;</span></p>
+        <p><span class="d">&#9670; 주격 관계대명사 who + 과거완료</span> <span class="a">&#9654; who had already recovered &mdash; 대과거</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9313;</span><span>He would have been nearly 100 percent recovered but he could not change the pattern of pain that occurred when using his right index finger to click the computer&#39;s mouse.</span></div>
+      <div class="literal"><div class="slash">He would have been nearly 100 percent recovered / but he could not change the pattern of pain / that occurred / when using his right index finger / to click the computer&#39;s mouse.</div><div class="kor">그는 거의 100% 회복되었을 것이다 / 하지만 그는 통증의 패턴을 바꿀 수 없었다 / 발생하는 / 그의 오른쪽 검지를 사용할 때 / 컴퓨터 마우스를 클릭하기 위해.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 가정법 과거완료 would have p.p.</span> <span class="a">&#9654; would have been recovered &mdash; &lsquo;~했을 것이다(실제론 못함)&rsquo;</span></p>
+        <p><span class="d">&#9670; 주격 관계대명사 that</span> <span class="a">&#9654; the pattern of pain that occurred</span></p>
+        <p><span class="d">&#9670; 접속사+분사 / to부정사(목적)</span> <span class="a">&#9654; when using = when he used, to click &mdash; &lsquo;~하기 위해&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9314;</span><span>In Robert&#39;s own words, &ldquo;The strange part is that my finger and hand don&#39;t hurt when I close my eyes and move/click the mouse.</span></div>
+      <div class="literal"><div class="slash">In Robert&#39;s own words, / &ldquo;The strange part is / that my finger and hand don&#39;t hurt / when I close my eyes / and move/click the mouse.</div><div class="kor">Robert 자신의 말로는, / &ldquo;이상한 부분은 ~이다 / 내 손가락과 손이 아프지 않다는 것 / 내가 눈을 감고 / 마우스를 움직이거나 클릭할 때.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 주격보어 명사절 that</span> <span class="a">&#9654; The strange part is that ... &mdash; be동사 뒤 that절(보어)</span></p>
+        <p><span class="d">&#9670; 시간 부사절 when + 현재시제</span> <span class="a">&#9654; when I close &mdash; 일반적 사실</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9315;</span><span>It&#39;s as if the screen (and software) is the trigger for the pain!&rdquo;</span></div>
+      <div class="literal"><div class="slash">It&#39;s as if / the screen (and software) is the trigger / for the pain!&rdquo;</div><div class="kor">마치 ~인 것 같다 / 화면(그리고 소프트웨어)이 계기인 것처럼 / 그 통증의!&rdquo;</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; as if (마치 ~인 것처럼)</span> <span class="a">&#9654; It&#39;s as if the screen is ...</span> <span class="s">&#9733; 직설법 is 사용 &rarr; 사실에 가깝다고 여김 (가정법 were면 사실과 반대)</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9316;</span><span>He reduces his visual acuity when he closes his eyes, one of his senses.</span></div>
+      <div class="literal"><div class="slash">He reduces his visual acuity / when he closes his eyes, / one of his senses.</div><div class="kor">그는 시각적 예민함을 줄인다 / 그가 눈을 감을 때 / 그의 감각 중 하나인.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 동격 명사구</span> <span class="a">&#9654; his eyes, one of his senses &mdash; eyes = one of his senses</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9317;</span><span>So, closing his eyes allegorically opens them by removing the sensory trigger.</span></div>
+      <div class="literal"><div class="slash">So, / closing his eyes / allegorically opens them / by removing the sensory trigger.</div><div class="kor">그래서, / 눈을 감는 것이 / 비유적으로 그것들을 뜨게 한다 / 감각적 계기를 제거함으로써.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 동명사 주어</span> <span class="a">&#9654; closing his eyes ... opens &mdash; 단수 취급(opens)</span></p>
+        <p><span class="d">&#9670; by +동명사(수단)</span> <span class="a">&#9654; by removing &mdash; &lsquo;~함으로써&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9318;</span><span>If he unconsciously despises staring at his computer screen because staring at it is in conflict with his unconscious wants and needs, then closing his eyes &ldquo;cuts out&rdquo; the source of information that triggers his anger, i.e., his eyesight.</span></div>
+      <div class="literal"><div class="slash">If he unconsciously despises / staring at his computer screen / because staring at it is in conflict / with his unconscious wants and needs, / then closing his eyes &ldquo;cuts out&rdquo; / the source of information / that triggers his anger, / i.e., his eyesight.</div><div class="kor">만약 그가 무의식적으로 몹시 싫어한다면 / 컴퓨터 화면을 응시하는 것을 / 그것을 응시하는 것이 상충하기 때문에 / 그의 무의식적 욕구·필요와, / 그렇다면 눈을 감는 것은 &ldquo;차단한다&rdquo; / 정보의 원천을 / 그의 분노를 유발하는 / 즉, 그의 시력을.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; If ~, then ~ (조건/논리)</span> <span class="a">&#9654; 인과 구조</span></p>
+        <p><span class="d">&#9670; despise +동명사</span> <span class="a">&#9654; despises staring</span></p>
+        <p><span class="d">&#9670; 주격 관계대명사 that</span> <span class="a">&#9654; the source of information that triggers ...</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9319;</span><span>Sight is one of the senses that blinds us (Lao Tzu).</span></div>
+      <div class="literal"><div class="slash">Sight is one of the senses / that blinds us / (Lao Tzu).</div><div class="kor">시각은 감각들 중 하나이다 / 우리를 눈멀게 하는 / (노자).</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; one of the + 복수명사 + 관계사절</span> <span class="a">&#9654; the senses that blinds us</span></p>
+        <p><span class="d">&#9670; 역설(paradox)</span> <span class="a">&#9654; &lsquo;보는 감각이 눈멀게 한다&rsquo; &mdash; 주제문(밑줄): 시각 의존이 진실을 못 보게 함</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심단어 -->
+  <div class="tabpanel" id="pane-4-3" style="display:none">
+    <div class="voc"><span class="w">odd</span><span class="mean">이상한, 기이한</span><span class="pos">adj.</span><span class="der"><b>파생</b> oddly (adv.)</span></div>
+    <div class="voc"><span class="w">trigger</span><span class="mean">계기, 유발 요인; 촉발하다</span><span class="pos">n./v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">run across</span><span class="mean">우연히 마주치다</span><span class="pos">v. (구동사)</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">recover</span><span class="mean">회복하다</span><span class="pos">v.</span><span class="der"><b>파생</b> recovery (n.)</span></div>
+    <div class="voc"><span class="w">occur</span><span class="mean">발생하다, 일어나다</span><span class="pos">v.</span><span class="der"><b>파생</b> occurrence (n.)</span></div>
+    <div class="voc"><span class="w">index finger</span><span class="mean">검지</span><span class="pos">n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">hurt</span><span class="mean">아프다; 다치게 하다</span><span class="pos">v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">as if</span><span class="mean">마치 ~인 것처럼</span><span class="pos">conj.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">visual</span><span class="mean">시각의</span><span class="pos">adj.</span><span class="der"><b>파생</b> vision (n.), visualize (v.)</span></div>
+    <div class="voc"><span class="w">acuity</span><span class="mean">예민함, 예리함</span><span class="pos">n.</span><span class="der"><b>파생</b> acute (adj.)</span></div>
+    <div class="voc"><span class="w">sense</span><span class="mean">감각</span><span class="pos">n.</span><span class="der"><b>파생</b> sensory (adj.), sensitive (adj.)</span></div>
+    <div class="voc"><span class="w">allegorically</span><span class="mean">비유적으로</span><span class="pos">adv.</span><span class="der"><b>파생</b> allegory (n.), allegorical (adj.)</span></div>
+    <div class="voc"><span class="w">despise</span><span class="mean">몹시 싫어하다, 경멸하다</span><span class="pos">v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">unconscious</span><span class="mean">무의식적인</span><span class="pos">adj.</span><span class="der"><b>파생</b> unconsciously (adv.), consciousness (n.)</span></div>
+    <div class="voc"><span class="w">eyesight</span><span class="mean">시력</span><span class="pos">n.</span><span class="der"><b>파생</b> sight (n.)</span></div>
+  </div>
+
+  <!-- 전문해석 -->
+  <div class="tabpanel" id="pane-4-4" style="display:none">
+    <div class="trans">
+      내가 연구하던 중 우연히 마주친, 이상하지만 흥미로운 한 가지 계기는 Robert라는 사람이 소개해 준 것이었는데, 그는 Sarno 박사의 두 번째 책을 읽은 후 이미 RSI(반복 사용에 의한 부상)에서 약 75% 회복된 상태였다. 그는 거의 100% 회복될 수도 있었지만, 오른쪽 검지로 컴퓨터 마우스를 클릭할 때 생기는 통증의 패턴만은 바꿀 수 없었다. Robert 자신의 말을 빌리면, &ldquo;이상한 점은 눈을 감고 마우스를 움직이거나 클릭할 때는 손가락과 손이 아프지 않다는 것이다. 마치 화면(과 소프트웨어)이 그 통증의 유발 요인인 것 같다!&rdquo;라는 것이었다. 그는 눈을 감을 때 자신의 감각 중 하나인 시각적 예민함을 줄인다. 그래서 눈을 감는 것은 감각적 유발 요인을 제거함으로써 비유적으로 그의 눈을 뜨게 한다. 만약 그가 컴퓨터 화면을 응시하는 것을 무의식적으로 몹시 싫어한다면&mdash;그것을 응시하는 일이 그의 무의식적 욕구 및 필요와 충돌하기 때문인데&mdash;그렇다면 눈을 감는 것은 그의 분노를 유발하는 정보의 원천, 즉 그의 시력을 &ldquo;차단하는&rdquo; 셈이다. 시각은 우리를 눈멀게 하는 감각 중 하나이다(노자).
+    </div>
+  </div>
+
+  <!-- 주제와 요지 -->
+  <div class="tabpanel" id="pane-4-5" style="display:none">
+    <div class="theme">
+      <div class="row"><div class="k">TOPIC · 주제</div><div class="v">시각에 대한 의존이 오히려 실재를 제대로 보지 못하게 함</div></div>
+      <div class="row"><div class="k">MAIN IDEA · 요지</div><div class="v">눈을 감아 시각 자극을 차단하면 통증이 사라진 Robert의 사례처럼, 시각에 대한 의존은 우리가 진실(실재)을 있는 그대로 보지 못하게 만들 수 있다.</div></div>
+      <div class="row"><div class="k navy">STRUCTURE · 구조 흐름</div><div class="flow"><div>사례 도입 &mdash; RSI에서 75% 회복한 Robert</div><div>문제 &mdash; 마우스 클릭 시 남은 통증</div><div>관찰 &mdash; 눈을 감으면 아프지 않음, 화면이 유발 요인</div><div>해석·결론 &mdash; 시각 차단이 계기 제거, &lsquo;시각이 눈멀게 한다&rsquo;</div></div></div>
+      <div class="row ans"><div class="k">ANSWER · 밑줄 함의</div><div class="v">Our reliance on sight may prevent us from seeing reality as it truly is &mdash; 정답 &#9315;</div></div>
+    </div>
+  </div>
+
+  <!-- 변형문제 -->
+  <div class="tabpanel" id="pane-4-6" style="display:none">
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q1</span><span class="qtype">주제 추론</span></div>
+      <div class="qstem">이 글의 주제로 가장 적절한 것은?</div>
+      <div class="opts" id="q41-opts">
+        <div class="opt" onclick="pick('q41',1,3)"><span class="on">&#9312;</span><span class="ot">반복 사용 부상의 의학적 치료법</span></div>
+        <div class="opt" onclick="pick('q41',2,3)"><span class="on">&#9313;</span><span class="ot">눈을 감는 행동의 신체적 위험성</span></div>
+        <div class="opt" onclick="pick('q41',3,3)"><span class="on">&#9314;</span><span class="ot">시각 의존이 실재 인식을 방해할 수 있음</span></div>
+        <div class="opt" onclick="pick('q41',4,3)"><span class="on">&#9315;</span><span class="ot">컴퓨터 사용 시간을 줄이는 방법</span></div>
+        <div class="opt" onclick="pick('q41',5,3)"><span class="on">&#9316;</span><span class="ot">무의식과 의식의 과학적 구분</span></div>
+      </div>
+      <div class="exp" id="q41-exp"><b>정답 &#9314;</b> · 밑줄 문장이 곧 주제 &mdash; 시각 의존이 진실을 못 보게 함.</div>
+      <button class="reset" onclick="resetQuiz('q41')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q2</span><span class="qtype">빈칸 추론</span></div>
+      <div class="qstem"><span class="en">So, closing his eyes allegorically opens them by <span class="blank">______</span> the sensory trigger.</span></div>
+      <div class="opts" id="q42-opts">
+        <div class="opt" onclick="pick('q42',1,2)"><span class="on">&#9312;</span><span class="ot en">strengthening</span></div>
+        <div class="opt" onclick="pick('q42',2,2)"><span class="on">&#9313;</span><span class="ot en">removing</span></div>
+        <div class="opt" onclick="pick('q42',3,2)"><span class="on">&#9314;</span><span class="ot en">ignoring</span></div>
+        <div class="opt" onclick="pick('q42',4,2)"><span class="on">&#9315;</span><span class="ot en">copying</span></div>
+        <div class="opt" onclick="pick('q42',5,2)"><span class="on">&#9316;</span><span class="ot en">recording</span></div>
+      </div>
+      <div class="exp" id="q42-exp"><b>정답 &#9313;</b> · 눈을 감아 감각적 계기를 &lsquo;제거&rsquo;함으로써(removing) 통증이 사라진다.</div>
+      <button class="reset" onclick="resetQuiz('q42')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q3</span><span class="qtype">어법 오류</span></div>
+      <div class="qstem">밑줄 친 부분 중, 어법상 <b>틀린</b> 것은?<br>
+        <span class="en">He would <u>&#9312;have been</u> nearly 100 percent recovered but he could not change the pattern of pain <u>&#9313;that</u> occurred when <u>&#9314;using</u> his right index finger <u>&#9315;clicking</u> the mouse. Closing his eyes <u>&#9316;removes</u> the sensory trigger.</span></div>
+      <div class="opts" id="q43-opts">
+        <div class="opt" onclick="pick('q43',1,4)"><span class="on">&#9312;</span><span class="ot en">have been</span></div>
+        <div class="opt" onclick="pick('q43',2,4)"><span class="on">&#9313;</span><span class="ot en">that</span></div>
+        <div class="opt" onclick="pick('q43',3,4)"><span class="on">&#9314;</span><span class="ot en">using</span></div>
+        <div class="opt" onclick="pick('q43',4,4)"><span class="on">&#9315;</span><span class="ot en">clicking</span></div>
+        <div class="opt" onclick="pick('q43',5,4)"><span class="on">&#9316;</span><span class="ot en">removes</span></div>
+      </div>
+      <div class="exp" id="q43-exp"><b>정답 &#9315;</b> · &lsquo;클릭하기 위해&rsquo;라는 목적의 의미이므로 clicking &rarr; <b>to click</b>.</div>
+      <button class="reset" onclick="resetQuiz('q43')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q4</span><span class="qtype">내용 불일치</span></div>
+      <div class="qstem">이 글의 내용과 <b>일치하지 않는</b> 것은?</div>
+      <div class="opts" id="q44-opts">
+        <div class="opt" onclick="pick('q44',1,3)"><span class="on">&#9312;</span><span class="ot">Robert는 Sarno 박사의 책을 읽고 약 75% 회복했다.</span></div>
+        <div class="opt" onclick="pick('q44',2,3)"><span class="on">&#9313;</span><span class="ot">눈을 감으면 손가락과 손의 통증이 없었다.</span></div>
+        <div class="opt" onclick="pick('q44',3,3)"><span class="on">&#9314;</span><span class="ot">Robert는 눈을 감을 때 통증이 더 심해졌다.</span></div>
+        <div class="opt" onclick="pick('q44',4,3)"><span class="on">&#9315;</span><span class="ot">화면이 통증의 유발 요인처럼 여겨졌다.</span></div>
+        <div class="opt" onclick="pick('q44',5,3)"><span class="on">&#9316;</span><span class="ot">눈을 감는 것은 감각적 유발 요인을 제거한다.</span></div>
+      </div>
+      <div class="exp" id="q44-exp"><b>정답 &#9314;</b> · 눈을 감으면 아프지 &lsquo;않다&rsquo;고 했으므로 일치하지 않는다.</div>
+      <button class="reset" onclick="resetQuiz('q44')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q5</span><span class="qtype">글의 순서</span></div>
+      <div class="qstem">주어진 글 다음에 이어질 순서로 가장 적절한 것은?<br>
+        <span class="en" style="display:block;margin-top:6px;color:#5a6478;">[주어진 글] An odd, but interesting trigger ... was introduced by a man called Robert who had already recovered about 75 percent ...<br>
+        (A) In Robert&#39;s own words, &ldquo;... my finger and hand don&#39;t hurt when I close my eyes ...&rdquo;<br>
+        (B) He would have been nearly 100 percent recovered but he could not change the pattern of pain ... to click the mouse.<br>
+        (C) So, closing his eyes allegorically opens them by removing the sensory trigger.</span></div>
+      <div class="opts" id="q45-opts">
+        <div class="opt" onclick="pick('q45',1,3)"><span class="on">&#9312;</span><span class="ot en">(A) - (B) - (C)</span></div>
+        <div class="opt" onclick="pick('q45',2,3)"><span class="on">&#9313;</span><span class="ot en">(A) - (C) - (B)</span></div>
+        <div class="opt" onclick="pick('q45',3,3)"><span class="on">&#9314;</span><span class="ot en">(B) - (A) - (C)</span></div>
+        <div class="opt" onclick="pick('q45',4,3)"><span class="on">&#9315;</span><span class="ot en">(B) - (C) - (A)</span></div>
+        <div class="opt" onclick="pick('q45',5,3)"><span class="on">&#9316;</span><span class="ot en">(C) - (B) - (A)</span></div>
+      </div>
+      <div class="exp" id="q45-exp"><b>정답 &#9314;</b> · 배경(75% 회복) &rarr; 남은 통증 문제(B) &rarr; Robert의 관찰(A) &rarr; 해석/결론(C).</div>
+      <button class="reset" onclick="resetQuiz('q45')">다시 풀기</button>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 1 · 빈칸 요약</span>
+      <div class="wprompt"><span class="en">When Robert <span class="blank"> (1) </span> his eyes, his pain disappears, which suggests that our <span class="blank"> (2) </span> on sight can keep us from seeing reality clearly.</span></div>
+      <div class="wcond">조건 · 문맥에 맞게 각 빈칸에 한 단어씩 쓰시오.</div>
+      <textarea class="wtext" placeholder="(1) __________  /  (2) __________"></textarea>
+      <button class="showans" onclick="toggleAns('m41')">모범답안 보기</button>
+      <div class="modelans" id="m41"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">(1) closes &nbsp; (2) reliance</span> &nbsp;(dependence도 인정)</div></div>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 2 · 영작</span>
+      <div class="wprompt">밑줄 친 <span class="en">&lsquo;Sight is one of the senses that blinds us&rsquo;</span>가 의미하는 바를 본문에 근거하여 완전한 영어 문장으로 쓰시오.</div>
+      <div class="wcond">조건 · 완전한 영어 문장, 20단어 내외.</div>
+      <textarea class="wtext" placeholder="It means that ..."></textarea>
+      <button class="showans" onclick="toggleAns('m42')">모범답안 보기</button>
+      <div class="modelans" id="m42"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">It means that relying too much on our sight can actually prevent us from seeing reality as it truly is.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="passage" id="passage-5" style="display:none">
+  <div class="ptitle">
+    <span class="qno">Q 05</span>
+    <div class="en">Teaching Children to Decide</div>
+    <div class="ko">자녀에게 의사결정 가르치기 · 26005-0164</div>
+    <span class="type">유형 · 글의 요지 파악</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" id="tab-5-1" onclick="showTab(5,1)">전문</button>
+    <button class="tab" id="tab-5-2" onclick="showTab(5,2)">문장분석</button>
+    <button class="tab" id="tab-5-3" onclick="showTab(5,3)">핵심단어 및 표현</button>
+    <button class="tab" id="tab-5-4" onclick="showTab(5,4)">전문해석</button>
+    <button class="tab" id="tab-5-5" onclick="showTab(5,5)">주제와 요지</button>
+    <button class="tab" id="tab-5-6" onclick="showTab(5,6)">변형문제</button>
+  </div>
+
+  <!-- 전문 -->
+  <div class="tabpanel" id="pane-5-1">
+    <div class="fulltext">
+      Handing over decision making to your children is a gradual process based on their age, maturity, and decision-making history. It would be downright dangerous to give children complete latitude in their decision making. You can, however, begin to teach decision making to very young children by setting reasonable limits to their decisions. For example, if you took your children into a convenience store and told them they could have anything they wanted, they would be overwhelmed by the choices (which, research shows, either tend to prevent people from making decisions or result in poor decisions). However, you can give them limited options to choose from, such as jawbreakers, licorice, and bubble gum (or, better yet, sesame sticks, fruit wraps, and yogurt peanuts), and they would then decide which treat they want. Your children will learn to make decisions, but they won&#39;t be inundated by the huge number of options available to them.
+    </div>
+    <div class="note"><b>글의 요지</b> · 제한된 선택지를 제공하여 자녀의 의사결정 능력을 점진적으로 기를 수 있다 (정답 &#9316;)</div>
+  </div>
+
+  <!-- 문장분석 -->
+  <div class="tabpanel" id="pane-5-2" style="display:none">
+    <div class="fulltext" style="font-size:15px;line-height:1.7;margin-bottom:22px;">
+      Handing over decision making to your children is a gradual process ... However, you can give them limited options to choose from ... Your children will learn to make decisions, but they won&#39;t be inundated by the huge number of options available to them.
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9312;</span><span>Handing over decision making to your children is a gradual process based on their age, maturity, and decision-making history.</span></div>
+      <div class="literal"><div class="slash">Handing over decision making / to your children / is a gradual process / based on their age, maturity, and decision-making history.</div><div class="kor">의사결정을 넘겨주는 것은 / 당신의 자녀에게 / 점진적인 과정이다 / 그들의 나이, 성숙도, 그리고 의사결정 이력에 기반한.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 동명사 주어</span> <span class="a">&#9654; Handing over ... is &mdash; 단수 취급</span></p>
+        <p><span class="d">&#9670; 구동사 hand over / 과거분사구 based on</span> <span class="a">&#9654; &lsquo;넘겨주다&rsquo; / process (which is) based on</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9313;</span><span>It would be downright dangerous to give children complete latitude in their decision making.</span></div>
+      <div class="literal"><div class="slash">It would be downright dangerous / to give children complete latitude / in their decision making.</div><div class="kor">그것은 완전히 위험할 것이다 / 자녀에게 완전한 자유를 주는 것은 / 그들의 의사결정에 있어.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 가주어 It ~ 진주어 to부정사</span> <span class="a">&#9654; It ... to give ... &mdash; It이 to give ...를 대신</span></p>
+        <p><span class="d">&#9670; give + 간·목 + 직·목(4형식)</span> <span class="a">&#9654; give children latitude</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9314;</span><span>You can, however, begin to teach decision making to very young children by setting reasonable limits to their decisions.</span></div>
+      <div class="literal"><div class="slash">You can, however, begin / to teach decision making / to very young children / by setting reasonable limits / to their decisions.</div><div class="kor">당신은, 그러나, 시작할 수 있다 / 의사결정을 가르치는 것을 / 아주 어린 자녀에게 / 합리적인 한계를 설정함으로써 / 그들의 결정에.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; begin to +동사원형</span> <span class="a">&#9654; begin to teach</span></p>
+        <p><span class="d">&#9670; by +동명사(수단)</span> <span class="a">&#9654; by setting &mdash; &lsquo;~함으로써&rsquo;</span></p>
+        <p><span class="d">&#9670; 삽입어 however</span> <span class="a">&#9654; 콤마 사이 삽입 &mdash; 앞 문장과 대조</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9315;</span><span>For example, if you took your children into a convenience store and told them they could have anything they wanted, they would be overwhelmed by the choices (which, research shows, either tend to prevent people from making decisions or result in poor decisions).</span></div>
+      <div class="literal"><div class="slash">For example, / if you took your children into a convenience store / and told them / they could have anything they wanted, / they would be overwhelmed by the choices / (which ... either tend to prevent people from making decisions / or result in poor decisions).</div><div class="kor">예를 들어, / 만약 자녀를 편의점에 데려가서 / 그들에게 말한다면 / 원하는 것은 무엇이든 가질 수 있다고, / 그들은 그 선택지들에 압도될 것이다 / (그것들은 … 사람들이 결정을 내리지 못하게 막거나 / 형편없는 결정을 초래하는 경향이 있다).</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; 가정법 과거</span> <span class="a">&#9654; if you took ... they would be ... &mdash; 현재 사실의 반대·가정</span></p>
+        <p><span class="d">&#9670; either A or B (상관접속사)</span> <span class="a">&#9654; either tend to ... or result in ...</span></p>
+        <p><span class="d">&#9670; prevent A from -ing</span> <span class="a">&#9654; prevent people from making &mdash; &lsquo;A가 ~하지 못하게 하다&rsquo;</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9316;</span><span>However, you can give them limited options to choose from, such as jawbreakers, licorice, and bubble gum (or, better yet, sesame sticks, fruit wraps, and yogurt peanuts), and they would then decide which treat they want.</span></div>
+      <div class="literal"><div class="slash">However, / you can give them limited options / to choose from, / such as jawbreakers, licorice, and bubble gum / (or, better yet, sesame sticks, fruit wraps, and yogurt peanuts), / and they would then decide / which treat they want.</div><div class="kor">그러나, / 당신은 그들에게 제한된 선택지를 줄 수 있다 / 그중에서 고를 / 잼브레이커, 감초 사탕, 풍선껌과 같은 / (또는 더 나아가, 참깨 스틱, 과일 랩, 요구르트 땅콩) / 그러면 그들은 결정할 것이다 / 어떤 간식을 원하는지.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; to부정사 형용사적 용법</span> <span class="a">&#9654; options to choose from &mdash; &lsquo;고를 선택지&rsquo;(전치사 from 유지)</span></p>
+        <p><span class="d">&#9670; 간접의문문(목적어)</span> <span class="a">&#9654; decide which treat they want</span></p>
+      </div>
+    </div>
+
+    <div class="sbox">
+      <div class="enbox"><span class="cn">&#9317;</span><span>Your children will learn to make decisions, but they won&#39;t be inundated by the huge number of options available to them.</span></div>
+      <div class="literal"><div class="slash">Your children will learn / to make decisions, / but they won&#39;t be inundated / by the huge number of options / available to them.</div><div class="kor">당신의 자녀는 배울 것이다 / 결정 내리는 법을 / 하지만 그들은 압도되지 않을 것이다 / 엄청난 수의 선택지에 의해 / 그들에게 주어진.</div></div>
+      <div class="gram">
+        <p><span class="d">&#9670; learn to +동사원형</span> <span class="a">&#9654; learn to make &mdash; &lsquo;~하는 법을 배우다&rsquo;</span></p>
+        <p><span class="d">&#9670; 수동태 be inundated by / 형용사 후치수식</span> <span class="a">&#9654; be inundated by ... / options available to them</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심단어 -->
+  <div class="tabpanel" id="pane-5-3" style="display:none">
+    <div class="voc"><span class="w">hand over</span><span class="mean">넘겨주다, 이양하다</span><span class="pos">v. (구동사)</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">gradual</span><span class="mean">점진적인</span><span class="pos">adj.</span><span class="der"><b>파생</b> gradually (adv.)</span></div>
+    <div class="voc"><span class="w">maturity</span><span class="mean">성숙(도)</span><span class="pos">n.</span><span class="der"><b>파생</b> mature (adj./v.)</span></div>
+    <div class="voc"><span class="w">downright</span><span class="mean">완전히, 순전히</span><span class="pos">adv.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">latitude</span><span class="mean">(행동·선택의) 자유</span><span class="pos">n.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">reasonable</span><span class="mean">합리적인, 적당한</span><span class="pos">adj.</span><span class="der"><b>파생</b> reason (n.), reasonably (adv.)</span></div>
+    <div class="voc"><span class="w">limit</span><span class="mean">한계, 제한; 제한하다</span><span class="pos">n./v.</span><span class="der"><b>파생</b> limited (adj.), limitation (n.)</span></div>
+    <div class="voc"><span class="w">convenience store</span><span class="mean">편의점</span><span class="pos">n.</span><span class="der"><b>파생</b> convenient (adj.), convenience (n.)</span></div>
+    <div class="voc"><span class="w">overwhelmed</span><span class="mean">압도된</span><span class="pos">adj.</span><span class="der"><b>파생</b> overwhelm (v.), overwhelming (adj.)</span></div>
+    <div class="voc"><span class="w">tend to</span><span class="mean">~하는 경향이 있다</span><span class="pos">v.</span><span class="der"><b>파생</b> tendency (n.)</span></div>
+    <div class="voc"><span class="w">prevent</span><span class="mean">막다, 예방하다</span><span class="pos">v.</span><span class="der"><b>파생</b> prevention (n.)</span></div>
+    <div class="voc"><span class="w">option</span><span class="mean">선택지</span><span class="pos">n.</span><span class="der"><b>파생</b> optional (adj.), opt (v.)</span></div>
+    <div class="voc"><span class="w">treat</span><span class="mean">간식, 특별한 것; 대접하다</span><span class="pos">n./v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">inundate</span><span class="mean">감당 못할 만큼 주다, 넘치게 하다</span><span class="pos">v.</span><span class="der"><b>파생</b> &mdash;</span></div>
+    <div class="voc"><span class="w">available</span><span class="mean">이용 가능한</span><span class="pos">adj.</span><span class="der"><b>파생</b> availability (n.)</span></div>
+  </div>
+
+  <!-- 전문해석 -->
+  <div class="tabpanel" id="pane-5-4" style="display:none">
+    <div class="trans">
+      자녀에게 의사결정권을 넘겨주는 것은 그들의 나이, 성숙도, 그리고 의사결정 경험에 기반한 점진적인 과정이다. 자녀에게 의사결정에 있어 완전한 자유를 주는 것은 완전히 위험한 일일 것이다. 그러나 당신은 아주 어린 자녀에게도 그들의 결정에 합리적인 한계를 설정함으로써 의사결정을 가르치기 시작할 수 있다. 예를 들어, 자녀를 편의점에 데려가 원하는 것은 무엇이든 가질 수 있다고 말한다면, 그들은 그 선택지들에 압도될 것이다(연구에 따르면 이런 선택지들은 사람들이 결정을 내리지 못하게 하거나 형편없는 결정을 초래하는 경향이 있다). 하지만 잼브레이커, 감초 사탕, 풍선껌(또는 더 좋게는 참깨 스틱, 과일 랩, 요구르트 땅콩)처럼 그중에서 고를 수 있는 제한된 선택지를 준다면, 그들은 어떤 간식을 원하는지 결정하게 될 것이다. 당신의 자녀는 결정 내리는 법을 배우게 되겠지만, 그들에게 주어진 엄청나게 많은 선택지에 압도되지는 않을 것이다.
+    </div>
+  </div>
+
+  <!-- 주제와 요지 -->
+  <div class="tabpanel" id="pane-5-5" style="display:none">
+    <div class="theme">
+      <div class="row"><div class="k">TOPIC · 주제</div><div class="v">제한된 선택지를 통한 자녀의 점진적 의사결정 능력 함양</div></div>
+      <div class="row"><div class="k">MAIN IDEA · 요지</div><div class="v">자녀에게 완전한 자유를 주기보다 합리적으로 제한된 선택지를 제공하면, 자녀는 압도되지 않으면서 스스로 결정하는 법을 배울 수 있다.</div></div>
+      <div class="row"><div class="k navy">STRUCTURE · 구조 흐름</div><div class="flow"><div>주장 &mdash; 의사결정 이양은 점진적 과정</div><div>경계 &mdash; 완전한 자유는 위험함</div><div>방법·예시 &mdash; 편의점에서 무한 선택은 압도 &rarr; 제한된 선택지 제공</div><div>결론 &mdash; 압도 없이 결정하는 법을 배움</div></div></div>
+      <div class="row ans"><div class="k">ANSWER · 글의 요지</div><div class="v">제한된 선택지를 제공하여 자녀의 의사결정 능력을 점진적으로 기를 수 있다 &mdash; 정답 &#9316;</div></div>
+    </div>
+  </div>
+
+  <!-- 변형문제 -->
+  <div class="tabpanel" id="pane-5-6" style="display:none">
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q1</span><span class="qtype">주제 추론</span></div>
+      <div class="qstem">이 글의 주제로 가장 적절한 것은?</div>
+      <div class="opts" id="q51-opts">
+        <div class="opt" onclick="pick('q51',1,3)"><span class="on">&#9312;</span><span class="ot">자녀에게 완전한 자유를 허용하는 것의 이점</span></div>
+        <div class="opt" onclick="pick('q51',2,3)"><span class="on">&#9313;</span><span class="ot">편의점에서 건강한 간식을 고르는 방법</span></div>
+        <div class="opt" onclick="pick('q51',3,3)"><span class="on">&#9314;</span><span class="ot">제한된 선택지를 통한 자녀 의사결정 교육</span></div>
+        <div class="opt" onclick="pick('q51',4,3)"><span class="on">&#9315;</span><span class="ot">연구를 통한 소비자 행동 분석</span></div>
+        <div class="opt" onclick="pick('q51',5,3)"><span class="on">&#9316;</span><span class="ot">자녀의 나이에 맞는 용돈 관리법</span></div>
+      </div>
+      <div class="exp" id="q51-exp"><b>정답 &#9314;</b> · 제한된 선택지로 자녀에게 의사결정을 가르치는 것이 주제다.</div>
+      <button class="reset" onclick="resetQuiz('q51')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q2</span><span class="qtype">빈칸 추론</span></div>
+      <div class="qstem"><span class="en">You can give them <span class="blank">______</span> options to choose from, and they would then decide which treat they want.</span></div>
+      <div class="opts" id="q52-opts">
+        <div class="opt" onclick="pick('q52',1,2)"><span class="on">&#9312;</span><span class="ot en">unlimited</span></div>
+        <div class="opt" onclick="pick('q52',2,2)"><span class="on">&#9313;</span><span class="ot en">limited</span></div>
+        <div class="opt" onclick="pick('q52',3,2)"><span class="on">&#9314;</span><span class="ot en">expensive</span></div>
+        <div class="opt" onclick="pick('q52',4,2)"><span class="on">&#9315;</span><span class="ot en">identical</span></div>
+        <div class="opt" onclick="pick('q52',5,2)"><span class="on">&#9316;</span><span class="ot en">hidden</span></div>
+      </div>
+      <div class="exp" id="q52-exp"><b>정답 &#9313;</b> · 압도를 막기 위해 &lsquo;제한된(limited)&rsquo; 선택지를 제공한다.</div>
+      <button class="reset" onclick="resetQuiz('q52')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q3</span><span class="qtype">어법 오류</span></div>
+      <div class="qstem">밑줄 친 부분 중, 어법상 <b>틀린</b> 것은?<br>
+        <span class="en">If you took your children into a store and <u>&#9312;told</u> them they <u>&#9313;could</u> have anything they wanted, they <u>&#9314;would</u> be overwhelmed by the choices, which <u>&#9315;tend</u> to prevent people <u>&#9316;from make</u> decisions.</span></div>
+      <div class="opts" id="q53-opts">
+        <div class="opt" onclick="pick('q53',1,5)"><span class="on">&#9312;</span><span class="ot en">told</span></div>
+        <div class="opt" onclick="pick('q53',2,5)"><span class="on">&#9313;</span><span class="ot en">could</span></div>
+        <div class="opt" onclick="pick('q53',3,5)"><span class="on">&#9314;</span><span class="ot en">would</span></div>
+        <div class="opt" onclick="pick('q53',4,5)"><span class="on">&#9315;</span><span class="ot en">tend</span></div>
+        <div class="opt" onclick="pick('q53',5,5)"><span class="on">&#9316;</span><span class="ot en">from make</span></div>
+      </div>
+      <div class="exp" id="q53-exp"><b>정답 &#9316;</b> · prevent A from -ing 구문이므로 from make &rarr; <b>from making</b>.</div>
+      <button class="reset" onclick="resetQuiz('q53')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q4</span><span class="qtype">내용 불일치</span></div>
+      <div class="qstem">이 글의 내용과 <b>일치하지 않는</b> 것은?</div>
+      <div class="opts" id="q54-opts">
+        <div class="opt" onclick="pick('q54',1,4)"><span class="on">&#9312;</span><span class="ot">의사결정 이양은 점진적 과정이다.</span></div>
+        <div class="opt" onclick="pick('q54',2,4)"><span class="on">&#9313;</span><span class="ot">완전한 자유를 주는 것은 위험할 수 있다.</span></div>
+        <div class="opt" onclick="pick('q54',3,4)"><span class="on">&#9314;</span><span class="ot">너무 많은 선택지는 형편없는 결정을 초래할 수 있다.</span></div>
+        <div class="opt" onclick="pick('q54',4,4)"><span class="on">&#9315;</span><span class="ot">제한된 선택지는 어린 자녀에게 혼란만 준다.</span></div>
+        <div class="opt" onclick="pick('q54',5,4)"><span class="on">&#9316;</span><span class="ot">자녀는 제한된 선택지 속에서 결정을 배운다.</span></div>
+      </div>
+      <div class="exp" id="q54-exp"><b>정답 &#9315;</b> · 제한된 선택지는 오히려 결정을 돕는다고 했으므로 일치하지 않는다.</div>
+      <button class="reset" onclick="resetQuiz('q54')">다시 풀기</button>
+    </div>
+
+    <div class="qcard">
+      <div class="qhead"><span class="qbadge">Q5</span><span class="qtype">글의 순서</span></div>
+      <div class="qstem">주어진 글 다음에 이어질 순서로 가장 적절한 것은?<br>
+        <span class="en" style="display:block;margin-top:6px;color:#5a6478;">[주어진 글] Handing over decision making to your children is a gradual process ...<br>
+        (A) You can, however, begin to teach decision making to very young children by setting reasonable limits ...<br>
+        (B) It would be downright dangerous to give children complete latitude in their decision making.<br>
+        (C) For example, if you took your children into a convenience store ... they would be overwhelmed by the choices.</span></div>
+      <div class="opts" id="q55-opts">
+        <div class="opt" onclick="pick('q55',1,3)"><span class="on">&#9312;</span><span class="ot en">(A) - (B) - (C)</span></div>
+        <div class="opt" onclick="pick('q55',2,3)"><span class="on">&#9313;</span><span class="ot en">(A) - (C) - (B)</span></div>
+        <div class="opt" onclick="pick('q55',3,3)"><span class="on">&#9314;</span><span class="ot en">(B) - (A) - (C)</span></div>
+        <div class="opt" onclick="pick('q55',4,3)"><span class="on">&#9315;</span><span class="ot en">(B) - (C) - (A)</span></div>
+        <div class="opt" onclick="pick('q55',5,3)"><span class="on">&#9316;</span><span class="ot en">(C) - (A) - (B)</span></div>
+      </div>
+      <div class="exp" id="q55-exp"><b>정답 &#9314;</b> · 완전한 자유는 위험(B) &rarr; 그러나 한계 설정으로 교육 가능(A) &rarr; 편의점 예시(C).</div>
+      <button class="reset" onclick="resetQuiz('q55')">다시 풀기</button>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 1 · 빈칸 요약</span>
+      <div class="wprompt"><span class="en">Instead of giving children complete <span class="blank"> (1) </span>, parents should offer <span class="blank"> (2) </span> options so that children can learn to decide without feeling overwhelmed.</span></div>
+      <div class="wcond">조건 · 본문에서 찾아(또는 문맥에 맞게) 각 빈칸에 한 단어씩 쓰시오.</div>
+      <textarea class="wtext" placeholder="(1) __________  /  (2) __________"></textarea>
+      <button class="showans" onclick="toggleAns('m51')">모범답안 보기</button>
+      <div class="modelans" id="m51"><div class="mlab">MODEL ANSWER</div><div class="mtx"><span class="en">(1) latitude &nbsp; (2) limited</span> &nbsp;((1) freedom도 인정)</div></div>
+    </div>
+
+    <div class="wcard">
+      <span class="wtag">서술형 2 · 서술</span>
+      <div class="wprompt">자녀에게 완전한 자유 대신 제한된 선택지를 주어야 하는 이유를 본문에 근거하여 한국어로 서술하시오.</div>
+      <div class="wcond">조건 · 한국어 2문장 이내, &lsquo;압도&rsquo; 또는 &lsquo;결정&rsquo;의 개념 포함.</div>
+      <textarea class="wtext" placeholder="너무 많은 선택지는 ..."></textarea>
+      <button class="showans" onclick="toggleAns('m52')">모범답안 보기</button>
+      <div class="modelans" id="m52"><div class="mlab">MODEL ANSWER</div><div class="mtx">너무 많은 선택지는 자녀를 압도하여 결정을 내리지 못하게 하거나 형편없는 결정을 하게 만들 수 있기 때문이다. 제한된 선택지를 주면 자녀가 압도되지 않으면서도 스스로 결정하는 법을 점진적으로 배울 수 있다.</div></div>
+    </div>
+  </div>
+</section>
+
+  </div><!-- /.wrap -->
+  <div class="mainfoot">
+    <b>에듀케레 영수학원</b> &nbsp;|&nbsp; 경남 양산시 물금읍 &nbsp;|&nbsp; Tel. 055-363-8010<br>
+    EBS 수능특강 영어 · TEST 1-1 지문 분석 · 학습용 자료
+  </div>
+</main><!-- /.main -->
+</div><!-- /.layout -->
+
+<script>
+var answered = {};
+
+function showPassage(n){
+  var i;
+  for(i=1;i<=5;i++){
+    var ps = document.getElementById('passage-'+i);
+    var nb = document.getElementById('nav-'+i);
+    if(ps){ ps.style.display = (i===n) ? 'block' : 'none'; }
+    if(nb){ nb.className = (i===n) ? 'navitem active' : 'navitem'; }
+  }
+  showTab(n,1);
+  window.scrollTo(0,0);
+}
+
+function showTab(p,t){
+  var i;
+  for(i=1;i<=6;i++){
+    var pane = document.getElementById('pane-'+p+'-'+i);
+    var tb = document.getElementById('tab-'+p+'-'+i);
+    if(pane){ pane.style.display = (i===t) ? 'block' : 'none'; }
+    if(tb){ tb.className = (i===t) ? 'tab active' : 'tab'; }
+  }
+}
+
+function pick(q, choice, correct){
+  if(answered[q]){ return; }
+  answered[q] = true;
+  var box = document.getElementById(q+'-opts');
+  if(!box){ return; }
+  var opts = box.children;
+  opts[correct-1].className = 'opt correct';
+  if(choice !== correct){ opts[choice-1].className = 'opt wrong'; }
+  var exp = document.getElementById(q+'-exp');
+  if(exp){ exp.style.display = 'block'; }
+}
+
+function resetQuiz(q){
+  answered[q] = false;
+  var box = document.getElementById(q+'-opts');
+  if(box){
+    var i;
+    var opts = box.children;
+    for(i=0;i<opts.length;i++){ opts[i].className = 'opt'; }
+  }
+  var exp = document.getElementById(q+'-exp');
+  if(exp){ exp.style.display = 'none'; }
+}
+
+function toggleAns(id){
+  var el = document.getElementById(id);
+  if(!el){ return; }
+  el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+}
+
+showPassage(1);
+</script>
+</body>
+</html>
